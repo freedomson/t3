@@ -16,7 +16,10 @@ module.exports = function(grunt) {
         options: {
           livereload: true
         },
-        files: ['todos.html', 'demo.css'],
+        files: [
+          'src/features/*/*.html', 
+          'demo.css'
+        ],
         tasks: []
       }
     },

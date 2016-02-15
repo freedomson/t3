@@ -4,39 +4,36 @@
 <head>
   <title>templates</title>
   <script src="lib/angular.js"></script>
+  <script src="src/features/branding/branding.js"></script>
+  <script src="src/features/todos/todos.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="demo.css">
 </head>
 
 <body ng-app='TodosApp'>
-  <p>content before todos</p>
 
-  <todos></todos>
+  <div class="content">
 
-  <p>content after todos</p>
+    <branding></branding>
 
-  <script id="todos">
-angular.module('Todos', [])
-  .directive('todos', function () {
-    return {
-      restrict: 'E',
-      templateUrl: 'todos.html',
-      controller: function ($scope) {
-        $scope.todos = ['item 1', 'item 2'];
-        $scope.addCurrentTodo = function () {
-          if ($scope.newTodo) {
-            $scope.todos.push($scope.newTodo);
-            $scope.newTodo = '';
-          }
-        };
-      }
-    }
+    <todos></todos>
+
+    <contact></contact>
+
+  </div>
+
+  <script>
+
+  var app=angular.module('TodosApp', ['Branding','Todos']);
+  app.filter('slice', function() {
+    return function(arr, start, end) {
+      return arr.slice(start, end);
+    };
   });
   </script>
 
-  <script>
-  angular.module('TodosApp', ['Todos']);
-  </script>
   <script src="//localhost:35729/livereload.js"></script>
   <script src="reload-todos.js"></script>
+
 </body>
 </html>
