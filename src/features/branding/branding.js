@@ -1,8 +1,8 @@
-angular.module('Branding', [])
-  .directive('branding', function () {
+angular.module('Branding', ['templates-dist'])
+  .directive('branding', function ($templateCache) {
     return {
       restrict: 'E',
-      templateUrl: 'src/features/branding/branding.html',
+      template: $templateCache.get('src/features/branding/branding.html'),
       controller: function ($scope) {
       	var vm;
         $scope.vm = { 
@@ -12,10 +12,10 @@ angular.module('Branding', [])
       }
     }
   })
-  .directive('contact', function () {
+  .directive('contact', function ($templateCache) { 
     return {
       restrict: 'E',
-      templateUrl: 'src/features/branding/contact.html',
+      template:  $templateCache.get('src/features/branding/contact.html'),
       controller: function ($scope) {
       	var vm;
         $scope.contacts = [ 

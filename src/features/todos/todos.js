@@ -1,8 +1,8 @@
-angular.module('Todos', [])
-  .directive('todos', function () {
+angular.module('Todos', ['templates-dist'])
+  .directive('todos', function ($templateCache) {
     return {
       restrict: 'E',
-      templateUrl: 'src/features/todos/todos.html',
+      template: $templateCache.get('src/features/branding/contact.html'),
       controller: function ($scope) {
         $scope.todos = 
         [
@@ -26,7 +26,6 @@ angular.module('Todos', [])
         angular.forEach($scope.todos, function(value, key) {
           this.push({id:''+i++,'title':value,src:value});
         }, photos);
-        console.log(photos);
         $scope.photos = photos;
 
         $scope.addCurrentTodo = function () {

@@ -1,0 +1,72 @@
+*{
+  font-family: 'Sawasdee', 'Droid Sans', sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+@font-face {
+    font-family: Sawasdee;
+    src: url(fonts/Sawasdee.ttf);
+}
+
+body {
+  background-color: #efefef;
+  width: 100%;
+}
+
+.branding {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.contact {  
+  padding:10px;
+}
+
+.content {
+  display: block; 
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  list-style-type: none;
+}
+
+.todo {
+  font-size: 20px;
+  margin: 0px;
+  padding-left:10px;
+  margin-left:5px;
+  letter-spacing: 2px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
+  background-color: #ddd;
+
+}
+
+.deckgrid[deckgrid]::before {
+    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+    content: '4 .column.column-1-4';
+    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+    visibility: hidden;
+}
+
+.deckgrid .column {
+    float: left;
+}
+
+.deckgrid .column-1-4 {
+    width: 25%;
+}
+
+.deckgrid .column-1-1 {
+    width: 100%;
+}
+
+@media screen and (max-width: 480px){
+    .deckgrid[deckgrid]::before {
+        content: '1 .column.column-1-1';
+    }
+}
