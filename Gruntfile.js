@@ -43,7 +43,8 @@ module.exports = function(grunt) {
     targethtml: {
       dist: {
         files: {
-          'dist/index.html': 'index.html'
+          'dist/index.html': 'index.html',
+          'dist/reload-todos.js': 'reload-todos.js',
         }
       }
     },
@@ -101,10 +102,13 @@ module.exports = function(grunt) {
         files: [
           'src/features/*/*.js', 
           'src/features/*/*.html', 
-          'demo.css',
-          'index.html'
+          'main.css',
+          'index.html',
+          'dist/index.html',
+          'dist/app.js',
+          'dist/main.css'
         ],
-        tasks: []
+        tasks: ['reload']
       }
     },
 
@@ -142,6 +146,8 @@ module.exports = function(grunt) {
   grunt.registerTask('demo', ['http-server:demo', 'open', 'watch:ngTemplates']);
 
   grunt.registerTask('build', ['http-server:dist','html2js','concat','uglify','targethtml:dist', 'copy:main', 'watch:ngTemplates']);
+
+  grunt.registerTask('reload', ['html2js','concat','uglify','targethtml:dist', 'copy:main']);
 
   grunt.event.once('http-server.demo.listening', function(host, port) {
 

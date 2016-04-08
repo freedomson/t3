@@ -2,7 +2,7 @@ angular.module('Todos', ['templates-dist'])
   .directive('todos', function ($templateCache) {
     return {
       restrict: 'E',
-      template: $templateCache.get('src/features/branding/contact.html'),
+      template: $templateCache.get('src/features/todos/todos.html'),
       controller: function ($scope) {
         $scope.todos = 
         [
