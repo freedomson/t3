@@ -29,6 +29,7 @@
     //$templateCache.removeAll();
     console.log(path);
     if (!$templateCache.get(path)) {
+       console.log('Template not found:' + path);
       return;
     }
     console.log('We have template cache!');
@@ -47,9 +48,18 @@
     // look at each module's _invokeQueue to see if there is a directive
     // keep walking down the dependent modules (requires)
 
+    var filename = (path.split('\\').pop().split('/').pop()).split('.')[0];
+    console.log('Directive match: ' + filename );
+
     var $compile = injector.get('$compile');
     var $timeout = injector.get('$timeout');
-    var todos = document.querySelector('todos');
+    var todos = document.querySelector(filename);
+    
+    if (!todos){
+        console.log('**** ERROR: Unknown directive!');
+        return;
+    }
+    
     var scope = angular.element(todos).scope();
 
     var ownProperties = Object.keys(scope)

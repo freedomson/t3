@@ -20,7 +20,7 @@
 
   <script src="lib/angular.js"></script>
 
-
+<!--(if target dev)><!-->
   <script src="src/features/branding/branding.js"></script>
   <script src="src/features/todos/todos.js"></script>
 
@@ -35,10 +35,21 @@
 
   <script src="//localhost:35729/livereload.js"></script>
   <script src="reload-todos.js"></script>
- 
+ <!--<!(endif)-->
 
 
-
+<!--(if target dist)><!-->
+    <script src="lib/templates.js"></script>
+    <script src="app.js"></script> 
+    <script>
+    var app = angular.module('TodosApp', ['templates-dist','Branding','Todos']);
+    app.filter('slice', function() {
+      return function(arr, start, end) {
+        return arr.slice(start, end);
+      };
+    });
+  </script>
+<!--<!(endif)-->
 
 </body>
 </html>

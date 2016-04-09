@@ -1,8 +1,9 @@
-angular.module('Todos', ['templates-dist'])
+angular.module('Todos', [/*'templates-dist'*/])
   .directive('todos', function ($templateCache) {
     return {
       restrict: 'E',
-      template: $templateCache.get('src/features/todos/todos.html'),
+      // template: $templateCache.get('src/features/todos/todos.html'),
+      templateUrl: 'src/features/todos/todos.html',
       controller: function ($scope) {
         $scope.todos = 
         [
