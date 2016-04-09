@@ -15,7 +15,8 @@ angular.module('Branding', ['templates-dist'])
   .directive('contact', function ($templateCache) { 
     return {
       restrict: 'E',
-      template:  $templateCache.get('src/features/branding/contact.html'),
+      // template:  $templateCache.get('src/features/branding/contact.html'),
+      templateUrl: 'src/features/branding/contact.html',
       controller: function ($scope) {
       	var vm;
         $scope.contacts = [ 

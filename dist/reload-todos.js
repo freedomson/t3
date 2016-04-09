@@ -23,12 +23,15 @@
 
   // returns true if reloads a directive from given path
   function reloadAngularDirectiveTemplate(path) {
-
+        
     var injector = angular.element(document.body).injector();
     var $templateCache = injector.get('$templateCache');
+    //$templateCache.removeAll();
+    console.log(path);
     if (!$templateCache.get(path)) {
       return;
     }
+    console.log('We have template cache!');
     $templateCache.remove(path);
 
 

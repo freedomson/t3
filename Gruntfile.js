@@ -45,6 +45,7 @@ module.exports = function(grunt) {
         files: {
           'dist/index.html': 'index.html',
           'dist/reload-todos.js': 'reload-todos.js',
+          'dist/lib/angular.js': 'lib/angular.js'
         }
       }
     },
@@ -145,9 +146,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('demo', ['http-server:demo', 'open', 'watch:ngTemplates']);
 
-  grunt.registerTask('build', ['http-server:dist','html2js','concat','uglify','targethtml:dist', 'copy:main', 'watch:ngTemplates']);
+  grunt.registerTask('build', ['http-server:dist','html2js:dist','concat','uglify','targethtml:dist', 'copy:main', 'watch:ngTemplates']);
 
-  grunt.registerTask('reload', ['html2js','concat','uglify','targethtml:dist', 'copy:main']);
+  grunt.registerTask('reload', ['html2js:dist']);
 
   grunt.event.once('http-server.demo.listening', function(host, port) {
 
