@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>templates</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/"/>
+    <title>Paseeo</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
-<body ng-app='TodosApp'>
+<body ng-app='App'>
 
   <div class="content">
 
     <branding></branding>
-
-    <todos></todos>
-
-    <contact></contact>
+    <div ui-view></div>
 
   </div>
 
   <script src="lib/angular.js"></script>
 
 <!--(if target dev)><!-->
+  <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="src/api/services.js"></script>
+  <script src="src/api/controllers.js"></script>
   <script src="src/features/branding/branding.js"></script>
   <script src="src/features/todos/todos.js"></script>
 
-  <script>
-    var app = angular.module('TodosApp', ['Branding','Todos']);
-    app.filter('slice', function() {
-      return function(arr, start, end) {
-        return arr.slice(start, end);
-      };
-    });
-  </script>
+  <script src="src/app.js"></script>
 
   <script src="//localhost:35729/livereload.js"></script>
   <script src="reload-todos.js"></script>
@@ -42,7 +40,7 @@
     <script src="lib/templates.js"></script>
     <script src="app.js"></script> 
     <script>
-    var app = angular.module('TodosApp', ['templates-dist','Branding','Todos']);
+    var app = angular.module('TodosApp', ['ngResource','templates-dist','Branding','Todos']);
     app.filter('slice', function() {
       return function(arr, start, end) {
         return arr.slice(start, end);

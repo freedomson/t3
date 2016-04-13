@@ -110,7 +110,7 @@ module.exports = function(grunt) {
           'main.css',
           'index.src.html'
         ],
-        tasks: []
+        tasks: [/*'targethtml:dev' THIS CANT BE RELOADS PAGE*/]
       }
     },
 
@@ -149,7 +149,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', ['http-server:dist','html2js:dist','concat','uglify','targethtml:dist', 'copy:main', 'watch:ngTemplates']);
 
-  // grunt.registerTask('reload', ['html2js:dist']);
+  grunt.registerTask('reload', ['targethtml:dev']);
 
   grunt.event.once('http-server.demo.listening', function(host, port) {
 
