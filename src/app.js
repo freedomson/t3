@@ -1,9 +1,18 @@
-angular.module('App', [
-    'ui.router', 'ngResource','Branding','Todos',  'api.controllers', 'api.services']);
+angular.module( 'App', [
+    'ui.router', 
+    'ngResource',
+    'Branding',
+    'Todos', 
+    'Floors',
+    'API.Services']);
  // var app = angular.module('TodosApp', ['ngResource','Branding','Todos']);
    
 angular.module('App').config(function($stateProvider) {
-  $stateProvider.state('paseeos', { // state for showing all movies
+  $stateProvider.state('home', { // state for showing all movies
+    url: '/',
+    templateUrl: 'src/features/floors/partial.html',//,
+    controller: 'FloorsListController'
+  }).state('paseeos', { // state for showing all movies
     url: '/paseeos',
     templateUrl: 'src/features/paseeos/paseeos.html',
     controller: 'PaseeoListController'
@@ -21,5 +30,5 @@ angular.module('App').config(function($stateProvider) {
     controller: 'MovieEditController'
   });
 }).run(function($state) {
-  $state.go('paseeos'); //make a transition to movies state when app starts
+  $state.go('home'); //make a transition to movies state when app starts
 });

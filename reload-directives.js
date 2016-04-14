@@ -32,17 +32,21 @@
        console.log('Template not found:' + path);
       return;
     }
-    console.log('We have template cache!');
-    $templateCache.remove(path);
-
-
+    
     var appModule = getRootModule();
     if (!appModule || !appModule.value) {
       console.log('Could not find root module');
       return;
     }
+
+    console.log('We have template cache!');
+    $templateCache.remove(path);
+
+
     appModule = String(appModule.value);
+ 
     console.log('app module', appModule);
+
     // TODO grab all directives provided by all modules
     // see https://github.com/bahmutov/ng-ast
     // look at each module's _invokeQueue to see if there is a directive
@@ -50,7 +54,7 @@
 
     var filename = (path.split('\\').pop().split('/').pop()).split('.')[0];
     console.log('Directive match: ' + filename );
-
+  
     var $compile = injector.get('$compile');
     var $timeout = injector.get('$timeout');
     var todos = document.querySelector(filename);
