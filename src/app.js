@@ -1,12 +1,13 @@
 angular.module( 'App', [
-    'ui.router', 
+    'ui.router',
     'ngResource',
     'Branding',
-    'Todos', 
+    'Contact',
+    'Todos',
     'Floors',
     'API.Services']);
  // var app = angular.module('TodosApp', ['ngResource','Branding','Todos']);
-   
+
 angular.module('App').config(function($stateProvider) {
   $stateProvider.state('home', { // state for showing all movies
     url: '/',

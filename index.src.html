@@ -16,6 +16,7 @@
 
     <branding></branding>
     <div ui-view></div>
+    <contact></contact>
 
   </div>
 
@@ -28,6 +29,7 @@
   <script src="src/features/floors/floors.js"></script>
   <script src="src/features/branding/branding.js"></script>
   <script src="src/features/todos/todos.js"></script>
+  <script src="src/features/contact/contact.js"></script>
 
   <script src="src/app.js"></script>
 
@@ -38,7 +40,7 @@
 
 <!--(if target dist)><!-->
     <script src="lib/templates.js"></script>
-    <script src="app.js"></script> 
+    <script src="app.js"></script>
     <script>
     var app = angular.module('TodosApp', ['ngResource','templates-dist','Branding','Todos']);
     app.filter('slice', function() {

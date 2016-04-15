@@ -21,18 +21,23 @@
 
   }
 
+  function jsToHtml(string){
+    return string.replace('js', 'html');
+  }
+
   // returns true if reloads a directive from given path
-  function reloadAngularDirectiveTemplate(path) {
-        
+  function reloadAngularDirectiveTemplate(inPathArg) {
+    var path = jsToHtml(inPathArg);
     var injector = angular.element(document.body).injector();
     var $templateCache = injector.get('$templateCache');
     //$templateCache.removeAll();
+    //console.log('presence');
     console.log(path);
     if (!$templateCache.get(path)) {
        console.log('Template not found:' + path);
       return;
     }
-    
+
     var appModule = getRootModule();
     if (!appModule || !appModule.value) {
       console.log('Could not find root module');
@@ -42,9 +47,8 @@
     console.log('We have template cache!');
     $templateCache.remove(path);
 
-
     appModule = String(appModule.value);
- 
+
     console.log('app module', appModule);
 
     // TODO grab all directives provided by all modules
@@ -54,16 +58,16 @@
 
     var filename = (path.split('\\').pop().split('/').pop()).split('.')[0];
     console.log('Directive match: ' + filename );
-  
+
     var $compile = injector.get('$compile');
     var $timeout = injector.get('$timeout');
     var todos = document.querySelector(filename);
-    
+    console.log('Directive', todos);
     if (!todos){
         console.log('**** ERROR: Unknown directive!');
         return;
     }
-    
+
     var scope = angular.element(todos).scope();
 
     var ownProperties = Object.keys(scope)
