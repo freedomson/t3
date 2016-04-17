@@ -25,14 +25,56 @@
     return string.replace('js', 'html');
   }
 
+  function getRemoteScope($timeout, $rootScope, $compile, $http, directive, path){
+    this.directive = directive;
+    this.$compile = $compile;
+    this.$timeout = $timeout;
+    var me = this;
+    console.log(directive);
+    $http({
+    method: 'GET',
+    url: path
+    }).then(
+      angular.bind(this,
+      function successCallback(response) {
+      var directive = this.directive;
+      var directiveCopy = directive[0].toUpperCase() + directive.substring(1).toLowerCase();
+      var out = response.data.replace(new RegExp(directive, 'g'), directive + '__');
+      out = out.replace(new RegExp(directiveCopy, 'g'), directiveCopy + '__');
+      out = out.replace(new RegExp('__/', 'g'), '/');
+      out = out.replace(new RegExp('__.html', 'g'), '.html');
+      console.log(out);
+      console.log(this.directive + '---' + directiveCopy);
+      var m = eval(out);
+      console.log(m);
+      var generatedTemplate = '<'+directive+'__'+'></'+directive+'__'+'>';
+      var nscope = $rootScope.$new();
+
+      // console.log(this.$compile(generatedTemplate)(nscope))
+      var el = document.body.appendChild(this.$compile(generatedTemplate)(nscope)[0]);
+      console.log(el);
+      this.$timeout( function() {
+        console.log(angular.element(document.querySelector(directiveCopy + '__')).scope());
+      },0);
+      // this callback will be called asynchronously
+      // when the response is available
+    }), function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+     console.log('Network error!');
+    });
+  }
+
   // returns true if reloads a directive from given path
   function reloadAngularDirectiveTemplate(inPathArg) {
-    var path = jsToHtml(inPathArg);
+    var originalPath = angular.copy(inPathArg);
+    var path = jsToHtml(originalPath);
     var injector = angular.element(document.body).injector();
     var $templateCache = injector.get('$templateCache');
     //$templateCache.removeAll();
     //console.log('presence');
     console.log(path);
+
     if (!$templateCache.get(path)) {
        console.log('Template not found:' + path);
       return;
@@ -56,19 +98,22 @@
     // look at each module's _invokeQueue to see if there is a directive
     // keep walking down the dependent modules (requires)
 
-    var filename = (path.split('\\').pop().split('/').pop()).split('.')[0];
-    console.log('Directive match: ' + filename );
+    var directiveName = (path.split('\\').pop().split('/').pop()).split('.')[0];
+    console.log('Directive match: ' + directiveName );
 
     var $compile = injector.get('$compile');
     var $timeout = injector.get('$timeout');
-    var todos = document.querySelector(filename);
-    console.log('Directive', todos);
-    if (!todos){
+    var $compile = injector.get('$compile');
+    var $rootScope = injector.get('$rootScope');
+    var $http = injector.get('$http');
+    var directive = document.querySelector(directiveName);
+    console.log('Directive', directive);
+    if (!directive){
         console.log('**** ERROR: Unknown directive!');
         return;
     }
 
-    var scope = angular.element(todos).scope();
+    var scope = angular.element(directive).scope();
 
     var ownProperties = Object.keys(scope)
       .filter(nonAngularKey)
@@ -80,7 +125,12 @@
 
     console.log('existing scope', scope);
 
-    var compileFn = $compile(todos);
+    if (originalPath.indexOf('.js')){
+      var remoteScope = getRemoteScope($timeout, $rootScope, $compile, $http, directiveName, originalPath);
+      console.log(remoteScope);
+    }
+
+    var compileFn = $compile(directive);
     var returns = compileFn(scope);
 
     // todo: when is template updated?
