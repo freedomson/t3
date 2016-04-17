@@ -5,7 +5,7 @@ angular.module('Branding', [/*'templates-dist'*/])
 
           var vm;
           $scope.vm = {
-            name : ',nbbeauty.today',
+            name : '5bbeauty.today',
             logo : 'images/logo.svg'
           };
 

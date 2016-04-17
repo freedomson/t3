@@ -25,7 +25,7 @@
     return string.replace('js', 'html');
   }
 
-  function getRemoteScope($timeout, $rootScope, $compile, $http, directive, path){
+  function getRemoteScope(injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directive, path){
     this.directive = directive;
     this.$compile = $compile;
     this.$timeout = $timeout;
@@ -47,15 +47,27 @@
       console.log(this.directive + '---' + directiveCopy);
       var m = eval(out);
       console.log(m);
-      var generatedTemplate = '<'+directive+'__'+'></'+directive+'__'+'>';
-      var nscope = $rootScope.$new();
 
+      var promise = $ocLazyLoad.inject((directiveCopy + '__'));
+      console.log(promise);
+      promise.then(function(){
+
+        console.log($ocLazyLoad.getModules());
+
+        var generatedTemplate = '<'+directive+'__'+' ng-controller="Branding__MainController"></'+directive+'__'+'>';
+        nscope = $rootScope.$new();
+        var el = document.body.appendChild(this.$compile(generatedTemplate)(nscope)[0]);
+        // console.log(el);
+        // this.$timeout( function() {
+        console.log(angular.element(document.querySelector(directive + '__')).scope());
+        console.log(nscope);
+
+        //var $serviceTest = injector.get('Branding__MainController');
+        //console.log($serviceTest);
+
+        //},0);
+      });
       // console.log(this.$compile(generatedTemplate)(nscope))
-      var el = document.body.appendChild(this.$compile(generatedTemplate)(nscope)[0]);
-      console.log(el);
-      this.$timeout( function() {
-        console.log(angular.element(document.querySelector(directiveCopy + '__')).scope());
-      },0);
       // this callback will be called asynchronously
       // when the response is available
     }), function errorCallback(response) {
@@ -106,6 +118,7 @@
     var $compile = injector.get('$compile');
     var $rootScope = injector.get('$rootScope');
     var $http = injector.get('$http');
+    var $ocLazyLoad = injector.get('$ocLazyLoad');
     var directive = document.querySelector(directiveName);
     console.log('Directive', directive);
     if (!directive){
@@ -126,8 +139,8 @@
     console.log('existing scope', scope);
 
     if (originalPath.indexOf('.js')){
-      var remoteScope = getRemoteScope($timeout, $rootScope, $compile, $http, directiveName, originalPath);
-      console.log(remoteScope);
+      var remoteScope = getRemoteScope(injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directiveName, originalPath);
+      // console.log(remoteScope);
     }
 
     var compileFn = $compile(directive);
