@@ -25,12 +25,12 @@
     return string.replace('js', 'html');
   }
 
-  function getRemoteScope(injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directive, path){
+  function getRemoteScope(directiveEl, injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directive, path){
     this.directive = directive;
     this.$compile = $compile;
     this.$timeout = $timeout;
     var me = this;
-    console.log(directive);
+    
     $http({
     method: 'GET',
     url: path
@@ -39,33 +39,65 @@
       function successCallback(response) {
       var directive = this.directive;
       var directiveCopy = directive[0].toUpperCase() + directive.substring(1).toLowerCase();
-      var out = response.data.replace(new RegExp(directive, 'g'), directive + '__');
-      out = out.replace(new RegExp(directiveCopy, 'g'), directiveCopy + '__');
+      var out = response.data.replace(new RegExp('\''+directive+'\'', 'g'), '\''+directive + '__'+'\'');
+      out = out.replace(new RegExp('\''+directiveCopy+'\'', 'g'), '\''+directiveCopy + '__'+'\'');
       out = out.replace(new RegExp('__/', 'g'), '/');
       out = out.replace(new RegExp('__.html', 'g'), '.html');
-      console.log(out);
-      console.log(this.directive + '---' + directiveCopy);
+      //console.log(out);
+      //console.log(this.directive + '---' + directiveCopy);
       var m = eval(out);
-      console.log(m);
+      // console.log(m);
 
       var promise = $ocLazyLoad.inject((directiveCopy + '__'));
-      console.log(promise);
+      // console.log(promise);
+      var nscope = $rootScope.$new();
       promise.then(function(){
 
-        console.log($ocLazyLoad.getModules());
+        // console.log($ocLazyLoad.getModules());
+        
+        var outscope = false;
+        angular.module(directiveCopy + '__')['_invokeQueue'].forEach(function(value){ 
+            try {
+                var hasScope = (value[2][1][0]==='$scope');   
+                var ctlName = value[2][0];
+                
+                if (hasScope && ctlName) {
+                    var generatedTemplate = '<'+directive+'__'+' ng-controller="' + ctlName + '"></'+directive+'__'+'>';
+                    
+                    var el = document.body.appendChild(this.$compile(generatedTemplate)(nscope)[0]);
+                    outscope = angular.element(document.querySelector(directive + '__')).scope();
+                    return false;                   
+                }
+                
+            } catch(e){
+                
+            }
+        });
+        
+        if (!outscope) return; 
+ 
+        // console.log(outscope, nscope.$$childHead);
+        
+        var scope = nscope.$$childHead;
 
-        var generatedTemplate = '<'+directive+'__'+' ng-controller="Branding__MainController"></'+directive+'__'+'>';
-        nscope = $rootScope.$new();
-        var el = document.body.appendChild(this.$compile(generatedTemplate)(nscope)[0]);
-        // console.log(el);
-        // this.$timeout( function() {
-        console.log(angular.element(document.querySelector(directive + '__')).scope());
-        console.log(nscope);
+        var ownProperties = Object.keys(scope)
+        .filter(nonAngularKey)
+        .filter(nonMethod.bind(null, scope));
 
-        //var $serviceTest = injector.get('Branding__MainController');
-        //console.log($serviceTest);
+        var clonedOwnScope = ownProperties.map(function (key) {
+            return deepClone(scope[key]);
+        });
+    
+        var compileFn = $compile(directiveEl);
+        var returns = compileFn(scope);
 
-        //},0);
+        $timeout(function () {
+        console.log('restoring scope data', clonedOwnScope);
+        ownProperties.forEach(function (key, k) {
+            scope[key] = clonedOwnScope[k];
+        });
+        }, 100);
+
       });
       // console.log(this.$compile(generatedTemplate)(nscope))
       // this callback will be called asynchronously
@@ -80,15 +112,16 @@
   // returns true if reloads a directive from given path
   function reloadAngularDirectiveTemplate(inPathArg) {
     var originalPath = angular.copy(inPathArg);
-    var path = jsToHtml(originalPath);
+    var path = jsToHtml(inPathArg);
     var injector = angular.element(document.body).injector();
     var $templateCache = injector.get('$templateCache');
     //$templateCache.removeAll();
     //console.log('presence');
-    console.log(path);
+    console.log('###### Reloading Angular Internals ...');
+    console.log(originalPath);
 
     if (!$templateCache.get(path)) {
-       console.log('Template not found:' + path);
+      console.log('Template not found:' + path);
       return;
     }
 
@@ -98,7 +131,6 @@
       return;
     }
 
-    console.log('We have template cache!');
     $templateCache.remove(path);
 
     appModule = String(appModule.value);
@@ -120,10 +152,18 @@
     var $http = injector.get('$http');
     var $ocLazyLoad = injector.get('$ocLazyLoad');
     var directive = document.querySelector(directiveName);
+    
     console.log('Directive', directive);
     if (!directive){
         console.log('**** ERROR: Unknown directive!');
         return;
+    }
+
+    // Do controllers...
+    if (originalPath.indexOf('.js') > 0){
+      getRemoteScope(directive, injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directiveName, originalPath);
+      return true;
+      // console.log(remoteScope);
     }
 
     var scope = angular.element(directive).scope();
@@ -136,13 +176,6 @@
       return deepClone(scope[key]);
     });
 
-    console.log('existing scope', scope);
-
-    if (originalPath.indexOf('.js')){
-      var remoteScope = getRemoteScope(injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directiveName, originalPath);
-      // console.log(remoteScope);
-    }
-
     var compileFn = $compile(directive);
     var returns = compileFn(scope);
 
@@ -153,7 +186,7 @@
       ownProperties.forEach(function (key, k) {
         scope[key] = clonedOwnScope[k];
       });
-    }, 100);
+    }, 100); 
 
     return true;
   }
