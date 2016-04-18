@@ -102,11 +102,17 @@ module.exports = function(grunt) {
       },
       ngTemplates: {
         options: {
-          livereload: true
+          livereload: {
+            host: 'localhost',
+            port: 9000,
+            key: grunt.file.read('server.key'),
+            cert: grunt.file.read('server.crt')
+            // you can pass in any other options you'd like to the https server, as listed here: http://nodejs.org/api/tls.html#tls_tls_createserver_options_secureconnectionlistener
+          }
         },
         files: [
-          'src/features/*/*.js', 
-          'src/features/*/*.html', 
+          'src/features/*/*.js',
+          'src/features/*/*.html',
           'main.css',
           'index.src.html'
         ],
@@ -117,13 +123,31 @@ module.exports = function(grunt) {
     'http-server': {
       dev: {
         root: '.',
-        port: 3003,
+        port: 443,
+        https: {
+            cert: "server.crt",
+            key : "server.key"
+        },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "*",
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+        },
         cache: -1,
         runInBackground: true
       },
       dist: {
         root: './dist',
-        port: 3006,
+        port: 443,
+        https: {
+            cert: "server.crt",
+            key : "server.key"
+        },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "*",
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+        },
         cache: -1,
         runInBackground: true
       }
@@ -135,7 +159,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('open', function () {
-    var url = 'http://localhost:3003';
+    var url = 'https://localhost';
     grunt.log.writeln('demo running at: ' + url);
     require('open')(url);
   });
