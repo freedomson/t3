@@ -1,5 +1,9 @@
  <div class="floors">
-    <div ng-repeat="floor in floors">
-        - {{floor.name}}
-    </div>
+   <span data-us-spinner>
+     <div data-loader-css="ball-scale"></div>
+   </span>
+   <ul>
+   <li ng-repeat="floor in floors">
+     {{floor.name}}
+   </ul>
 </div>

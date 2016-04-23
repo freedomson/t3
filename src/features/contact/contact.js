@@ -1,7 +1,7 @@
 angular.module('Contact', [/*'templates-dist'*/])
   .controller('ContactMainController',
-        ['$scope',
-        function($scope) {
+        ['$scope','cssInjector',
+        function($scope,cssInjector) {
 
           $scope.vm = {
            contacts : [
@@ -9,6 +9,8 @@ angular.module('Contact', [/*'templates-dist'*/])
             '2016 & Rolling'
           ]
           };
+
+          cssInjector.add("src/features/contact/contact.css");
 
     }])
   .directive('contact', function ($templateCache) {

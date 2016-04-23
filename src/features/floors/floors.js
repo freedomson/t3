@@ -1,7 +1,7 @@
 angular.module('Floors', ['API.Services'/*'templates-dist'*/])
-    .controller('FloorsListController', 
-        ['$scope', 'Floor',
-        function($scope, Floor) {
+    .controller('FloorsListController',
+        ['$scope', 'Floor', 'cssInjector',
+        function($scope, Floor, cssInjector) {
 
             var results = Floor.get({ id: 'root' });
 
@@ -13,7 +13,9 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                 console.log(arguments);
                 alert('Failed: ' + reason);
             });
-    
+
+            cssInjector.add("src/features/floors/floors.css");
+
     }])
   .directive('floors', function ($templateCache) {
     return {

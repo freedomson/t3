@@ -1,5 +1,4 @@
-angular.module('API.Services', [])
-.factory(
+angular.module('Config.Services', []).service(
   'Floor', function($resource) {
 
   var token = 'd0d915a8-95a8-4d0d-b89a-24823016c782';
@@ -8,6 +7,6 @@ angular.module('API.Services', [])
   return $resource(url, { id: '@_id' }, {
     update: {
       method: 'PUT'
-    } 
+    }
   });
 });

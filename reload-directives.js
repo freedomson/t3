@@ -30,7 +30,7 @@
     this.$compile = $compile;
     this.$timeout = $timeout;
     var me = this;
-    
+
     $http({
     method: 'GET',
     url: path
@@ -54,30 +54,30 @@
       promise.then(function(){
 
         // console.log($ocLazyLoad.getModules());
-        
+
         var outscope = false;
-        angular.module(directiveCopy + '__')['_invokeQueue'].forEach(function(value){ 
+        angular.module(directiveCopy + '__')['_invokeQueue'].forEach(function(value){
             try {
-                var hasScope = (value[2][1][0]==='$scope');   
+                var hasScope = (value[2][1][0]==='$scope');
                 var ctlName = value[2][0];
-                
+
                 if (hasScope && ctlName) {
                     var generatedTemplate = '<'+directive+'__'+' ng-controller="' + ctlName + '"></'+directive+'__'+'>';
-                    
+
                     var el = document.body.appendChild(this.$compile(generatedTemplate)(nscope)[0]);
                     outscope = angular.element(document.querySelector(directive + '__')).scope();
-                    return false;                   
+                    return false;
                 }
-                
+
             } catch(e){
-                
+
             }
         });
-        
-        if (!outscope) return; 
- 
+
+        if (!outscope) return;
+
         // console.log(outscope, nscope.$$childHead);
-        
+
         var scope = nscope.$$childHead;
 
         var ownProperties = Object.keys(scope)
@@ -87,7 +87,7 @@
         var clonedOwnScope = ownProperties.map(function (key) {
             return deepClone(scope[key]);
         });
-    
+
         var compileFn = $compile(directiveEl);
         var returns = compileFn(scope);
 
@@ -152,7 +152,7 @@
     var $http = injector.get('$http');
     var $ocLazyLoad = injector.get('$ocLazyLoad');
     var directive = document.querySelector(directiveName);
-    
+
     console.log('Directive', directive);
     if (!directive){
         console.log('**** ERROR: Unknown directive!');
@@ -160,7 +160,8 @@
     }
 
     // Do controllers...
-    if (originalPath.indexOf('.js') > 0){
+    if (originalPath.indexOf('.js') > 0 ||
+          originalPath.indexOf('.html') > 0){
       getRemoteScope(directive, injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directiveName, originalPath);
       return true;
       // console.log(remoteScope);
@@ -186,7 +187,7 @@
       ownProperties.forEach(function (key, k) {
         scope[key] = clonedOwnScope[k];
       });
-    }, 100); 
+    }, 100);
 
     return true;
   }

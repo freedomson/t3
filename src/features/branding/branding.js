@@ -1,13 +1,16 @@
 angular.module('Branding', [/*'templates-dist'*/])
   .controller('BrandingMainController',
-        ['$scope',
-        function($scope) {
+        ['$scope','cssInjector',
+        function($scope, cssInjector) {
 
-          $scope.vm = {  
-            name : 'Team',
-            logo : 'images/logo.svg'   
+          $scope.vm = {
+            name : 'Gugabooks',
+            slug: 'A book for everyone!',
+            logo : 'images/logo.svg'
           };
- 
+
+          cssInjector.add("src/features/branding/branding.css");
+
     }])
   .directive('branding', function ($templateCache) {
     return {
