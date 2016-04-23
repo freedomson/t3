@@ -114,6 +114,7 @@ module.exports = function(grunt) {
           'src/features/*/*.js',
           'src/features/*/*.html',
           'src/features/*/*.css',
+          'src//css/*.css',
           'main.css',
           'index.src.html'
         ],

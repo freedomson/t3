@@ -4,6 +4,7 @@
 body {
   margin: 0;
   font-size: calc( 15px + (24 - 12) * ( (100vw - 400px) / ( 800 - 400) ));
+  background-color: rgba(0, 2, 0, 0.1);
 }
 
 @font-face {
@@ -79,8 +80,3 @@ body {
   width: 30px;
   -webkit-animation: ball-scale 1s 0s ease-in-out infinite;
           animation: ball-scale 1s 0s ease-in-out infinite; }
-
-.ball-scale > div {
-  background: lightblue;
-  float: right;
-}

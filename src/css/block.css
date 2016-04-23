@@ -1,0 +1,28 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    list-style-type: none;
+}
+
+.block {
+  margin:0;
+  padding-left:5vw;
+  list-style: none;
+  background-color: rgba(0, 2, 0, 0.1);
+  font-size: 100%;
+}
+
+.block-background {
+  min-height: 20vh;
+  background-size: cover;
+  padding: 2vw;
+}
+
+.ball-scale > div {
+  background: rgba(255, 255, 0, 0.4);
+  float: right;
+}

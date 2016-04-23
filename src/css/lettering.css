@@ -1,0 +1,13 @@
+h1 {
+  margin:0;
+  padding:0;
+  padding-left:5vw;
+}
+
+.title-overflow {
+  color: rgba(255, 255, 255, 1);
+}
+
+.small {
+  font-size: 60%;
+}

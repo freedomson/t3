@@ -21,14 +21,16 @@ angular.module('App')
 
   cssInjectorProvider.setSinglePageMode(true);
 
-  $stateProvider.state('home', { // state for showing all movies
+  $stateProvider
+  // home
+  // ----------------------------------------------
+  .state('home', { // state for showing all movies
     url: '/',
     templateUrl: 'src/features/floors/partial.html',//,
-    controller: 'FloorsListController'/*,
-      resolve: {
-        load: ['cssInjector', function (cssInjector) {
-          cssInjector.add("src/features/branding/branding.css");
-        }]}*/
+    controller: 'FloorsListController'
+
+  // todo
+  // ----------------------------------------------
   }).state('viewMovie', { //state for showing single movie
     url: '/movies/:id/view',
     templateUrl: 'partials/movie-view.html',
