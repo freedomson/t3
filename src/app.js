@@ -1,4 +1,5 @@
 angular.module( 'App', [
+    "angular-centered",
     "the-cormoran.angular-loaders",
     'ngLoadingSpinner',
     'oc.lazyLoad',
@@ -8,7 +9,8 @@ angular.module( 'App', [
     'Contact',
     'Floors',
     'API.Services',
-    'angular.css.injector']);
+    'angular.css.injector',
+    'pascalprecht.translate']);
  // var app = angular.module('TodosApp', ['ngResource','Branding','Todos']);
 
 angular.module('App')

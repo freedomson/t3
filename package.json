@@ -45,7 +45,9 @@
     "pre-git": "0.1.1",
     "angular-ui-router": "0.2.18",
     "angular-resource": "1.5.3",
-    "oclazyload": "1.0.9"
+    "oclazyload": "1.0.9",
+    "angular-translate": "2.11.0",
+    "angular-centered": "1.0.1"
   },
   "pre-commit": [
     "grunt",

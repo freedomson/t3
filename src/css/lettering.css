@@ -1,7 +1,20 @@
+*{
+  font-family: 'Sawasdee', 'Droid Sans', sans-serif;
+}
+body {
+  margin: 0;
+  font-size: calc( 15px + (24 - 12) * ( (100vw - 400px) / ( 800 - 400) ));
+  background-color: rgba(0, 2, 0, 0.1);
+}
+
+@font-face {
+    font-family: Sawasdee;
+    src: url(fonts/Sawasdee.ttf);
+}
+
 h1 {
   margin:0;
   padding:0;
-  padding-left:5vw;
 }
 
 .title-overflow {
