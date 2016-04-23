@@ -10,7 +10,8 @@ angular.module( 'App', [
     'Floors',
     'API.Services',
     'angular.css.injector',
-    'pascalprecht.translate']);
+    'pascalprecht.translate',
+    'PageHome']);
  // var app = angular.module('TodosApp', ['ngResource','Branding','Todos']);
 
 angular.module('App')
@@ -28,8 +29,8 @@ angular.module('App')
   // ----------------------------------------------
   .state('home', { // state for showing all movies
     url: '/',
-    templateUrl: 'src/features/floors/partial.html',//,
-    controller: 'FloorsListController'
+    templateUrl: 'src/features/page-home/page-home.html',//,
+    controller: 'PageHomeMainController'
 
   // todo
   // ----------------------------------------------

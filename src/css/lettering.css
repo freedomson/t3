@@ -1,10 +1,7 @@
 *{
   font-family: 'Sawasdee', 'Droid Sans', sans-serif;
-}
-body {
-  margin: 0;
-  font-size: calc( 15px + (24 - 12) * ( (100vw - 400px) / ( 800 - 400) ));
-  background-color: rgba(0, 2, 0, 0.1);
+  font-size: calc( 100vh * 0.025);
+  font-weight: 300;
 }
 
 @font-face {
@@ -22,5 +19,9 @@ h1 {
 }
 
 .small {
-  font-size: 60%;
+  font-size: 50%;
+}
+
+.big {
+  font-size: 200%;
 }

@@ -21,11 +21,6 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
 
             cssInjector.add("src/features/floors/floors.css");
 
-            // TODO: Move to own directive - This is a bootstrap
-            cssInjector.add("src/css/main.css");
-            cssInjector.add("src/css/block.css");
-            cssInjector.add("src/css/lettering.css");
-
     }])
   .directive('floors', function ($templateCache) {
     return {

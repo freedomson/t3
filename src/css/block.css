@@ -1,33 +1,21 @@
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    margin: 0;
-    list-style-type: none;
-}
-
 .block-big {
   margin:0;
   list-style: none;
-  background-color: rgba(0, 2, 0, 0.1);
-  font-size: 100%;
-  height: 20vw;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 15vh;
+  border-bottom: calc( 100vw * 0.010) solid mediumseagreen;
 }
 
 .block-small {
   margin:0;
   list-style: none;
   background-color: rgba(0, 2, 0, 0.05);
-  font-size: 100%;
-  height: 10vw;
+  height: 10vh;
 }
 
 .block-background {
-  min-height: 20vh;
+  height: 75vh;
   background-size: cover;
-  padding: 2vw;
 }
 
 .ball-scale > div {
@@ -42,7 +30,7 @@ li {
     left:0;
     width:100%;
     display:table;
-    pointer-events: none;
+    pointer-events: inherit;;
     z-index:9999;
 }
 .angular-centered {

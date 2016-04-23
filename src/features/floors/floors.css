@@ -1,10 +1,1 @@
-.floors {
-  background:
-    /* top, transparent red, faked with gradient */
-    linear-gradient(
-      rgba(0, 2, 0, 0.4),
-      rgba(255, 255, 255, 0.1)
-    ),
-    /* bottom, image */
-    url(../../../images/books.jpg);
-}
+
