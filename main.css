@@ -1,6 +1,10 @@
 *{
   font-family: 'Sawasdee', 'Droid Sans', sans-serif;
 }
+body {
+  margin: 0;
+  font-size: calc( 15px + (24 - 12) * ( (100vw - 400px) / ( 800 - 400) ));
+}
 
 @font-face {
     font-family: Sawasdee;
@@ -77,6 +81,6 @@
           animation: ball-scale 1s 0s ease-in-out infinite; }
 
 .ball-scale > div {
-  background: black;
+  background: lightblue;
   float: right;
 }

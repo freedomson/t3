@@ -1,4 +1,5 @@
-.slug {
-  padding: 10px;
-  background-color: grey;
+.branding ul {
+    list-style: none;
+    background-color: #efefef;
+    font-size: 80%;
 }
