@@ -1,9 +1,7 @@
- <div class="floors">
-   <span data-us-spinner>
-     <div data-loader-css="ball-scale"></div>
-   </span>
+<div class="floors">
+   <div data-loader-css="ball-scale" data-ng-if="vm.loading"></div>
    <ul>
-   <li ng-repeat="floor in floors">
+   <li ng-repeat="floor in vm.floors">
      {{floor.name}}
    </ul>
 </div>

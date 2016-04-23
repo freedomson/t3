@@ -41,12 +41,10 @@ function loader() {
 
 		restrict: 'A',
 
-		replace: true,
-
 		scope: { },
 
 		template: function(elem, attr) {
-			return '<div class="loader"><div class="loader-inner  {{loader}}"><div ng-repeat="node in nodes" class="{{loaderClass}}"></div></div></div>';
+			return '<div class="loader" data-us-spinner><div class="loader-inner  {{loader}}"><div ng-repeat="node in nodes" class="{{loaderClass}}"></div></div></div>';
 		},
 
 		link: function(scope, elem, attr) {

@@ -1,5 +1,6 @@
 angular.module('ngLoadingSpinner', [])
-.directive('usSpinner',   ['$http', '$rootScope' ,function ($http, $rootScope){
+.directive('usSpinner',   ['$http', '$rootScope' ,
+  function ($http, $rootScope){
     return {
         link: function (scope, elm, attrs)
         {
@@ -13,7 +14,7 @@ angular.module('ngLoadingSpinner', [])
                 $rootScope.spinnerActive = loading;
                 if(loading){
                     elm.removeClass('ng-hide');
-                }else{
+                } else {
                     elm.addClass('ng-hide');
                 }
             });

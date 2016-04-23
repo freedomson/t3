@@ -5,9 +5,14 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
 
             var results = Floor.get({ id: 'root' });
 
+            $scope.vm = {
+              loading: true
+            };
+
             results.$promise.then(function(Floor) {
                 //debugger
-                $scope.floors = Floor.children;
+                $scope.vm.floors = Floor.children;
+                $scope.vm.loading = false;
                 //alert('Success: ' + greeting);
             }, function(reason) {
                 console.log(arguments);

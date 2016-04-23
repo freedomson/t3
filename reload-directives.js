@@ -45,6 +45,7 @@
       out = out.replace(new RegExp('__.html', 'g'), '.html');
       //console.log(out);
       //console.log(this.directive + '---' + directiveCopy);
+      //debugger;
       var m = eval(out);
       // console.log(m);
 
@@ -135,7 +136,7 @@
 
     appModule = String(appModule.value);
 
-    console.log('app module', appModule);
+    // console.log('app module', appModule);
 
     // TODO grab all directives provided by all modules
     // see https://github.com/bahmutov/ng-ast
@@ -160,8 +161,7 @@
     }
 
     // Do controllers...
-    if (originalPath.indexOf('.js') > 0 ||
-          originalPath.indexOf('.html') > 0){
+    if (originalPath.indexOf('.js') > 0){
       getRemoteScope(directive, injector, $ocLazyLoad, $timeout, $rootScope, $compile, $http, directiveName, originalPath);
       return true;
       // console.log(remoteScope);
