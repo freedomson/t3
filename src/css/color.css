@@ -1,0 +1,11 @@
+.color-link {
+  color: #FFFFFF;
+}
+
+.color-link a {
+  color: #FFFFFF;
+  background-color: mediumseagreen;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+}

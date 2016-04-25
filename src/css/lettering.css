@@ -18,10 +18,11 @@ h1 {
   color: rgba(255, 255, 255, 1);
 }
 
-.small {
-  font-size: 50%;
+.small, .small li, .small a {
+  font-size: 75%;
 }
 
+
 .big {
-  font-size: 200%;
+  font-size: 175%;
 }
