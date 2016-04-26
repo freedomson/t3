@@ -1,15 +1,27 @@
 angular.module('Branding', [/*'templates-dist'*/])
   .controller('BrandingMainController',
-        ['$scope','cssInjector',
-        function($scope, cssInjector) {
+        ['$scope','cssInjector','$translate','$rootScope',
+        function($scope, cssInjector, $translate,  $rootScope) {
 
           $scope.vm = {
-            name : 'Gugabooks',
-            slug: 'A book for everyone!',
+            name : '',
+            slug: '',
             logo : 'images/logo.svg'
           };
+          
+        function updateTranslation(){
+            $translate(['BRAND', 'SLUG']).then(function (trans) {
+                $scope.vm.name = trans.BRAND;
+                $scope.vm.slug = trans.SLUG;
+            });
+        }
 
-          cssInjector.add("src/features/branding/branding.css");
+        $rootScope.$on('$translateChangeSuccess', function () {
+            updateTranslation();
+        });
+            
+        cssInjector.add("src/features/branding/branding.css");
+        updateTranslation();
 
     }])
   .directive('branding', function ($templateCache) {

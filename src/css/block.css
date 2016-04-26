@@ -3,7 +3,10 @@
   list-style: none;
   background-color: rgba(0, 0, 0, 0.1);
   height: 15vh;
-  border-bottom: calc( 100vw * 0.010) solid mediumseagreen;
+}
+
+.block-big .angular-center-container {
+    height: 15vh;
 }
 
 .block-small {
@@ -13,9 +16,15 @@
   height: 10vh;
 }
 
+.block-small .angular-center-container {
+    height: 10vh;
+}
+
 .block-background {
-  height: 75vh;
+  height: 65vh;
   background-size: cover;
+  border-bottom: calc( 50vw * 0.010) solid mediumseagreen;
+  border-top: calc( 100vw * 0.010) solid mediumseagreen;
 }
 
 .ball-scale > div {
@@ -24,17 +33,15 @@
 }
 
 .angular-center-container {
-  position: relative;
-  height:100%;
-  top:0;
-    left:0;
-    width:100%;
-    display:table;
-    pointer-events: inherit;;
-    z-index:9999;
+    display:flex;
+    display: -webkit-flex;
+    justify-content: center;
+    text-align: center;
 }
 .angular-centered {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    
 }

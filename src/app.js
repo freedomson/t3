@@ -1,23 +1,3 @@
-var translationsEnUs = {
-  PT: 'Portuguese',
-  EN_US: 'American English',
-  HEADLINE: 'What an awesome module!',
-  PARAGRAPH: 'Srsly!',
-  NAMESPACE: {
-    PARAGRAPH: 'And it comes with awesome features!'
-  }
-};
-
-var translationsPt = {
-  PT: 'Português',
-  EN_US: 'Inglês Americano',
-  HEADLINE: 'Ola pt',
-  PARAGRAPH: 'Srsly!',
-  NAMESPACE: {
-    PARAGRAPH: 'And it comes with awesome features!'
-  }
-};
-
 angular.module( 'App', [
     "angular-centered",
     "the-cormoran.angular-loaders",

@@ -1,15 +1,29 @@
 angular.module('PageHome', [/*'templates-dist'*/])
   .controller('PageHomeMainController',
-        ['$scope','cssInjector',
-        function($scope,cssInjector) {
+        ['$scope','cssInjector','$rootScope','$translate',
+        function($scope,cssInjector,$rootScope,$translate) {
 
-          cssInjector.add("src/css/main.css");
-          cssInjector.add("src/css/block.css");
-          cssInjector.add("src/css/lettering.css");
-          cssInjector.add("src/css/button.css");
-          cssInjector.add("src/css/color.css");
+            $scope.vm = {
+              labelCreate   : ''
+            };
+            
+            function updateTranslation(){
+                $translate(['BUTTON.CREATE']).then(function (trans) {
+                    $scope.vm.labelCreate = trans['BUTTON.CREATE'];
+                });
+            }
 
-          cssInjector.add("src/features/page-home/page-home.css");
+            $rootScope.$on('$translateChangeSuccess', function () {
+                updateTranslation();
+            });
+            
+            cssInjector.add("src/css/main.css");
+            cssInjector.add("src/css/block.css");
+            cssInjector.add("src/css/lettering.css");
+            cssInjector.add("src/css/button.css");
+            cssInjector.add("src/css/color.css");
+
+            cssInjector.add("src/features/page-home/page-home.css");
 
     }])
   .directive('pageHome', function ($templateCache) {

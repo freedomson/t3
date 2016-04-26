@@ -1,16 +1,24 @@
 angular.module('Contact', [/*'templates-dist'*/])
   .controller('ContactMainController',
-        ['$scope','cssInjector',
-        function($scope,cssInjector) {
+        ['$scope','cssInjector','$translate','$rootScope',
+        function($scope,cssInjector, $translate,  $rootScope) {
 
           $scope.vm = {
-           contacts : [
-            'With Love from Lisbon',
-            '2016 & Rolling'
-          ]
+            note:''
           };
 
-          cssInjector.add("src/features/contact/contact.css");
+            function updateTranslation(){
+                $translate(['FOOTER.NOTE']).then(function (trans) {
+                    $scope.vm.note = trans['FOOTER.NOTE'];
+                });
+            }
+
+            $rootScope.$on('$translateChangeSuccess', function () {
+                updateTranslation();
+            });
+
+            cssInjector.add("src/features/contact/contact.css");
+            updateTranslation();
 
     }])
   .directive('contact', function ($templateCache) {

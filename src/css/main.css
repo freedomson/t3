@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background-color: rgba(0, 2, 0, 0.1);
+  overflow: hidden;
 }
 ul {
     margin: 0;

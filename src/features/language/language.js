@@ -5,7 +5,8 @@ angular.module('Language', [/*'templates-dist'*/])
 
           $scope.vm = {
             setLang: function(langKey) {
-              console.log(arguments);
+                
+              // console.log(arguments);
               $translate.use(langKey);
             }
           };
