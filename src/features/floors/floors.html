@@ -1,7 +1,7 @@
-<div class="floors">
-   <div data-loader-css="ball-scale" data-ng-if="vm.loading"></div>
-   <ul>
-   <li class="title-overflow" ng-repeat="floor in vm.floors">
-     {{floor.name}}
-   </ul>
-</div>
+<div data-loader-css="ball-scale" data-ng-if="vm.loading"></div>
+<ul class="floors">
+<li class="floor" ng-repeat="floor in vm.floors">
+    <centered class="big color-link">
+        {{floor.name}}
+    </centered>
+</ul>

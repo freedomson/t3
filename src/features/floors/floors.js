@@ -15,8 +15,8 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                 $scope.vm.loading = false;
                 //alert('Success: ' + greeting);
             }, function(reason) {
-                console.log(arguments);
-                alert('Failed: ' + reason);
+                console.log(reason, arguments);
+                // alert('Failed: ' + reason);
             });
 
             cssInjector.add("src/features/floors/floors.css");

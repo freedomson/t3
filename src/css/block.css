@@ -1,3 +1,39 @@
+body {
+  margin: 0;
+  background-color: rgba(0, 2, 0, 0.1);
+  overflow: hidden;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
+}
+li {
+    margin: 3.5px;
+    list-style-type: none;
+    height:25vh;
+    min-width:30vw;
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    
+}
+.block-page{
+    overflow-y: auto;
+}
 .block-big {
   margin:0;
   list-style: none;

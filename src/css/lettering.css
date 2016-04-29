@@ -14,15 +14,14 @@ h1 {
   padding:0;
 }
 
-.title-overflow {
-  color: rgba(255, 255, 255, 1);
-}
-
 .small, .small li, .small a {
   font-size: 75%;
 }
 
 
-.big {
+.big, .big span {
   font-size: 175%;
+}
+.big > .angular-center-container  {
+    height: 25vh;
 }
