@@ -1,16 +1,5 @@
 body {
   margin: 0;
-  overflow: hidden;
-  background:
-  /* top, transparent red, faked with gradient */
-  linear-gradient(
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.3)
-  ),
-  /* bottom, image */
-  url(../../../images/books.jpg);
-  background-position: center bottom;
-  background-repeat: no-repeat;
 }
 ul {
     margin: 0;
@@ -23,9 +12,9 @@ ul {
     flex-wrap: wrap;
 }
 li {
-    margin: 2vw;
+    margin: 1vh;
     list-style-type: none;
-    min-width:30vw;
+    max-width:45vw;
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0;
@@ -36,31 +25,34 @@ li {
     -ms-flex-item-align: auto;
     align-self: auto;
     border: 0px solid rgba(0, 0, 0, 0.10);
-
+    align-self: flex-start;
+    border-radius: 1vh;
 }
 .block-page{
-    overflow-y: auto;
 }
 .block-big {
   margin:0;
   list-style: none;
 }
 .block-big .angular-center-container {
-  padding: 10vw;
+  padding: 0vw 10vh 5vh 10vh;
 }
 
 .block-small {
   margin:0;
   list-style: none;
-  height: 5vh;
 }
 .block-small .angular-center-container {
-    height: 5vh;
+  padding: 01vw 5vw 1vw 5vw;
 }
 
-.block-background {
-  height: 75vh;
-  background-size: cover;
+@keyframes blink {
+to { color: transparent; }
+}
+
+.block-blink {
+  animation: blink 1s steps(2, start) infinite;
+  display: inline-block;
 }
 
 .ball-scale > div {
@@ -79,4 +71,9 @@ li {
     -webkit-align-items: center;
     align-items: center;
 
+}
+.block-icon-user {
+    width: 10vw;
+    height: 10vh;
+    background-color: : green;
 }

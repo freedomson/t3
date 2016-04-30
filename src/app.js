@@ -30,10 +30,10 @@ angular.module('App')
   // add translation table
   $translateProvider.useSanitizeValueStrategy('escape');
   $translateProvider
-    .translations('pt', translationsPt)
-    .translations('en_US', translationsEnUs)
+    .translations('pt-PT', translationsPtPT)
+    .translations('en-US', translationsEnUS)
     // .preferredLanguage('en_US')
-    .fallbackLanguage('en_US')
+    .fallbackLanguage('en-US')
     .uniformLanguageTag('bcp47')
     .determinePreferredLanguage();
 

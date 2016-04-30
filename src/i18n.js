@@ -1,6 +1,5 @@
-var translationsEnUs = {
-  BRAND: 'PaSeeO',
-  SLUG: 'Pick your book!',
+var translationsEnUS = {
+  SLUG: 'Connecting individuals...',
   PT: 'Portuguese',
   EN_US: 'American English',
   BUTTON: {
@@ -11,9 +10,8 @@ var translationsEnUs = {
   }
 };
 
-var translationsPt = {
-  BRAND: 'paseeo',
-  SLUG: 'Escolha o seu livro!',
+var translationsPtPT = {
+  SLUG: 'Ligando pessoas...',
   PT: 'Português',
   EN_US: 'Inglês Americano',
   BUTTON: {

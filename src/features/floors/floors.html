@@ -3,10 +3,13 @@
 <li class="floor" ng-repeat="floor in vm.floors">
 
     <centered class="block-small small color-high">
-    {{floor.date| date:'yyyy MMM dd'}}
+    {{floor.dateFull}}
     </centered>
-    <centered class="block-big big color-base">
+    <centered class="block-small big color-base">
         {{floor.name}}
+    </centered>
+    <centered class="block-big color-base">
+        {{floor.description}}
     </centered>
 
 
