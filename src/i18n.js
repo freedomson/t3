@@ -1,6 +1,6 @@
 var translationsEnUs = {
-  BRAND: 'Gugabooks',
-  SLUG: 'A book for everyone!',
+  BRAND: 'PaSeeO',
+  SLUG: 'Pick your book!',
   PT: 'Portuguese',
   EN_US: 'American English',
   BUTTON: {
@@ -12,8 +12,8 @@ var translationsEnUs = {
 };
 
 var translationsPt = {
-  BRAND: 'Gugabooks',
-  SLUG: 'Um livro para todos!',
+  BRAND: 'paseeo',
+  SLUG: 'Escolha o seu livro!',
   PT: 'Português',
   EN_US: 'Inglês Americano',
   BUTTON: {

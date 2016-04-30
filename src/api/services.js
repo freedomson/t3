@@ -6,8 +6,15 @@ angular.module('API.Services', [])
   var url = 'https://www.gugamarket.com/catalog/children?token='+token+'&node=:id';
 
   return $resource(url, { id: '@_id' }, {
+    get: {
+        method: 'GET',
+        transformResponse: function(data, headers){
+            data = angular.fromJson(data);
+            return data;
+        }
+    },
     update: {
       method: 'PUT'
-    } 
+    }
   });
 });

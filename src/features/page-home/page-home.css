@@ -1,13 +1,1 @@
-.page-home {
-  background:
-    /* top, transparent red, faked with gradient */
-    linear-gradient(
-      rgba(0, 0, 0, 0.1),
-      rgba(255, 255, 255, 0.1)
-    ),
-    /* bottom, image */
-    url(../../../images/books.jpg);
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-}
+

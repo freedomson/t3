@@ -1,11 +1,45 @@
-.color-link {
-  color: #FFFFFF;
+.block-background {
+  border-bottom: calc( 50vw * 0.001) solid rgba(0, 0, 0, 0.35);
+  border-top: calc( 50vw * 0.001) solid rgba(0, 0, 0, 0.35);
 }
 
-.color-link a {
-  color: #FFFFFF;
-  background-color: mediumseagreen;
+.ball-scale > div {
+  background: rgba(255, 255, 0, 0.4);
+}
+
+.color-base {
+  color: color: rgba(0, 0, 0, 0.75);
+}
+.color-base a {
+  color: color: rgba(0, 0, 0, 0.75);
   padding: 5px;
   margin: 5px;
-  text-decoration: none;
+}
+.small.color-base {
+  color: rgba(0, 0, 0, 0.75);
+}
+.small.color-base a {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.color-brand {
+  color: rgba(255, 255, 0, 0.95);
+}
+.color-brand a {
+  color: color: rgba(0, 0, 0, 0.75);
+  padding: 5px;
+  margin: 5px;
+}
+
+li {
+    background:
+      /* top, transparent red, faked with gradient */
+      linear-gradient(
+        rgba(0, 0, 0, 0.15),
+        rgba(255, 255, 255, 0.35)
+      );
+}
+
+.color-high .angular-center-container {
+  background: rgba(0, 0, 0, 0.075);
 }

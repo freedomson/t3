@@ -4,14 +4,13 @@ angular.module('Branding', [/*'templates-dist'*/])
         function($scope, cssInjector, $translate,  $rootScope) {
 
           $scope.vm = {
-            name : '',
+            name : 'gugabooks',
             slug: '',
-            logo : 'images/logo.svg'
+            logo : 'images/logo.png'
           };
-          
+
         function updateTranslation(){
-            $translate(['BRAND', 'SLUG']).then(function (trans) {
-                $scope.vm.name = trans.BRAND;
+            $translate(['SLUG']).then(function (trans) {
                 $scope.vm.slug = trans.SLUG;
             });
         }
@@ -19,7 +18,7 @@ angular.module('Branding', [/*'templates-dist'*/])
         $rootScope.$on('$translateChangeSuccess', function () {
             updateTranslation();
         });
-            
+
         cssInjector.add("src/features/branding/branding.css");
         updateTranslation();
 

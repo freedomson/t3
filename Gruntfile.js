@@ -115,7 +115,7 @@ module.exports = function(grunt) {
           'src/features/*/*.html',
           'src/features/*/*.css',
           'src/css/*.css',
-          'main.css',
+          'src/*.js',
           'index.src.html'
         ],
         tasks: [/*'targethtml:dev' THIS CANT BE RELOADS PAGE*/]

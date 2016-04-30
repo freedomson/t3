@@ -11,7 +11,13 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
 
             results.$promise.then(function(Floor) {
                 //debugger
+                // console.log(Floor);
                 $scope.vm.floors = Floor.children;
+                $scope.vm.floors.forEach(function(item){
+                  //console.log(item)
+                  item.date = new Date(item.updated);
+                });
+
                 $scope.vm.loading = false;
                 //alert('Success: ' + greeting);
             }, function(reason) {

@@ -1,7 +1,16 @@
 body {
   margin: 0;
-  background-color: rgba(0, 2, 0, 0.1);
   overflow: hidden;
+  background:
+  /* top, transparent red, faked with gradient */
+  linear-gradient(
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
+  ),
+  /* bottom, image */
+  url(../../../images/books.jpg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
 ul {
     margin: 0;
@@ -9,16 +18,14 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-flex-wrap: wrap-reverse;
-    -ms-flex-wrap: wrap-reverse;
-    flex-wrap: wrap-reverse;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 li {
-    margin: 3.5px;
+    margin: 2vw;
     list-style-type: none;
-    height:25vh;
     min-width:30vw;
-    background-color: rgba(0, 0, 0, 0.1);
     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0;
@@ -28,8 +35,8 @@ li {
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     align-self: auto;
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    
+    border: 0px solid rgba(0, 0, 0, 0.10);
+
 }
 .block-page{
     overflow-y: auto;
@@ -37,34 +44,26 @@ li {
 .block-big {
   margin:0;
   list-style: none;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 15vh;
 }
-
 .block-big .angular-center-container {
-    height: 15vh;
+  padding: 10vw;
 }
 
 .block-small {
   margin:0;
   list-style: none;
-  background-color: rgba(0, 2, 0, 0.05);
-  height: 10vh;
+  height: 5vh;
 }
-
 .block-small .angular-center-container {
-    height: 10vh;
+    height: 5vh;
 }
 
 .block-background {
-  height: 65vh;
+  height: 75vh;
   background-size: cover;
-  border-bottom: calc( 50vw * 0.010) solid mediumseagreen;
-  border-top: calc( 100vw * 0.010) solid mediumseagreen;
 }
 
 .ball-scale > div {
-  background: rgba(255, 255, 0, 0.4);
   float: right;
 }
 
@@ -79,5 +78,5 @@ li {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    
+
 }

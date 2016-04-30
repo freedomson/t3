@@ -1,7 +1,14 @@
 <div data-loader-css="ball-scale" data-ng-if="vm.loading"></div>
 <ul class="floors">
 <li class="floor" ng-repeat="floor in vm.floors">
-    <centered class="big color-link">
+
+    <centered class="block-small small color-high">
+    {{floor.date| date:'yyyy MMM dd'}}
+    </centered>
+    <centered class="block-big big color-base">
         {{floor.name}}
     </centered>
+
+
+
 </ul>
