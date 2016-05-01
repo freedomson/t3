@@ -1,0 +1,8 @@
+<div>
+  <centered data-ng-click="vm.onClick()" data-ng-if="!vm.showInput">
+    <div class="block-blink color-brand"><h1>_</h1></div>
+</centered>
+<centered data-ng-if="vm.showInput" >
+  <input id="username" class="big block-small" type="text" value="" placeholder="{{ 'EMAIL' | translate }}"/>
+</centered>
+</div>

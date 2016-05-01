@@ -12,7 +12,8 @@ angular.module( 'App', [
     'angular.css.injector',
     'pascalprecht.translate',
     'PageHome',
-    'Language']);
+    'Language',
+    'Login']);
  // var app = angular.module('TodosApp', ['ngResource','Branding','Todos']);
 
 angular.module('App')

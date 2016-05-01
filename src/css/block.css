@@ -45,6 +45,10 @@ li {
 .block-small .angular-center-container {
   padding: 01vw 5vw 1vw 5vw;
 }
+input.block-small {
+  border: 0;
+  padding: 1vw 2vw 1vw 2vw;
+}
 
 @keyframes blink {
 to { color: transparent; }
