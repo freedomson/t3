@@ -1,14 +1,14 @@
 angular.module('Floors', ['API.Services'/*'templates-dist'*/])
     .controller('FloorsListController',
-        ['$scope', 'Floor', 'cssInjector','$translate','$rootScope',
-        function($scope, Floor, cssInjector, $translate,  $rootScope) {
+        ['SystemDefaults','$location', '$scope', 'Floor', 'cssInjector','$translate','$rootScope',
+        function(SystemDefaults, $location, $scope, Floor
+          , cssInjector, $translate,  $rootScope) {
 
             var results = Floor.get({ id: 'root' });
 
             $scope.vm = {
               loading: true
             };
-
 
             results.$promise.then(function(Floor) {
                 //debugger
@@ -28,6 +28,11 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                 $scope.vm.loading = false;
                 //alert('Success: ' + greeting);
             }, function(reason) {
+
+                $translate(['ROUTE.ERROR']).then(function (trans) {
+                    $location.path(trans['ROUTE.ERROR'] + '/' + (reason.status
+                      || SystemDefaults.getDefaultError() ) );
+                });
                 console.log(reason, arguments);
                 // alert('Failed: ' + reason);
             });
@@ -39,7 +44,7 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
 
                 // request a weekday along with a long date
                 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                console.log($translate.proposedLanguage());
+                // console.log($translate.proposedLanguage());
                 item.dateFull = item.date.toLocaleDateString($translate.proposedLanguage(), options);
                 // → "Donnerstag, 20. Dezember 2012"
 

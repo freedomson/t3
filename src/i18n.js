@@ -1,4 +1,10 @@
 var translationsEnUS = {
+  ROUTE: {
+    ERROR: 'error'
+  },
+  ERROR: {
+    TITLE: 'Error'
+  },
   SLUG: 'Connecting individuals...',
   PT: 'Portuguese',
   EN_US: 'American English',
@@ -12,6 +18,12 @@ var translationsEnUS = {
 };
 
 var translationsPtPT = {
+  ROUTE: {
+    ERROR: 'erro'
+  },
+  ERROR: {
+    TITLE: 'Erro'
+  },
   SLUG: 'Ligando pessoas...',
   PT: 'Português',
   EN_US: 'Inglês Americano',

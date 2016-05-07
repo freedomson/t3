@@ -2,7 +2,7 @@ angular.module('API.Services', [])
 .factory(
   'Floor', function($resource) {
 
-  var token = 'd0d915a8-95a8-4d0d-b89a-24823016c782';
+  var token = '6222c1c4-a269-4702-926a-110f4a4de031';
   var url = 'https://www.gugamarket.com/catalog/children?token='+token+'&node=:id';
 
   return $resource(url, { id: '@_id' }, {

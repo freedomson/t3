@@ -1,12 +1,17 @@
 angular.module('Config.Services', []).service(
-  'Floor', function($resource) {
+  'SystemDefaults', function($resource) {
 
-  var token = 'd0d915a8-95a8-4d0d-b89a-24823016c782';
-  var url = 'https://www.gugamarket.com/catalog/children?token='+token+'&node=:id';
+    var config = {
+      error : {
+        default : 403
+      }
+    };
 
-  return $resource(url, { id: '@_id' }, {
-    update: {
-      method: 'PUT'
+    function getDefaultError(){
+      return config.error.default;
     }
-  });
+
+  return {
+    getDefaultError : getDefaultError
+  };
 });

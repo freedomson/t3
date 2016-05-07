@@ -13,7 +13,9 @@ angular.module( 'App', [
     'pascalprecht.translate',
     'PageHome',
     'Language',
-    'Login']);
+    'Login',
+    'Error',
+    'Config.Services']);
  // var app = angular.module('TodosApp', ['ngResource','Branding','Todos']);
 
 angular.module('App')
@@ -25,9 +27,9 @@ angular.module('App')
 .config(function($translateProvider,$locationProvider,
   $stateProvider, cssInjectorProvider) {
 
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
   cssInjectorProvider.setSinglePageMode(true);
-
+//debugger;
   // add translation table
   $translateProvider.useSanitizeValueStrategy('escape');
   $translateProvider
@@ -38,13 +40,24 @@ angular.module('App')
     .uniformLanguageTag('bcp47')
     .determinePreferredLanguage();
 
+  $routeTranslator = {
+    'error' : $translateProvider.translations()[$translateProvider.preferredLanguage()]['ROUTE.ERROR']
+  }
+// debugger;
   $stateProvider
   // home
   // ----------------------------------------------
   .state('home', { // state for showing all movies
-    url: '/:lang',
+    url: '/',
     templateUrl: 'src/features/page-home/page-home.html',//,
     controller: 'PageHomeMainController'
+
+  // error
+  // ----------------------------------------------
+  }).state('error', { // state for showing all movies
+    url: '/error/:id',
+    templateUrl: 'src/features/error/error.html',//,
+    controller: 'ErrorMainController'
 
   // todo
   // ----------------------------------------------
