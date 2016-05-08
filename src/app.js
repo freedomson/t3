@@ -27,7 +27,7 @@ angular.module('App')
 .config(function($translateProvider,$locationProvider,
   $stateProvider, cssInjectorProvider) {
 
-  // $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(false);
   cssInjectorProvider.setSinglePageMode(true);
 //debugger;
   // add translation table
@@ -48,7 +48,7 @@ angular.module('App')
   // home
   // ----------------------------------------------
   .state('home', { // state for showing all movies
-    url: '/',
+    url: '',
     templateUrl: 'src/features/page-home/page-home.html',//,
     controller: 'PageHomeMainController'
 

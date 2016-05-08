@@ -1,52 +1,35 @@
 body {
-  background:
-  /* top, transparent red, faked with gradient */
-  linear-gradient(
-    rgba(73,155,234,1),
-    rgba(73,155,234,0.75)
-  ),
-  /* bottom, image */
-  /* url(../../../images/books.jpg) */;
-  background-color: rgba(0, 172, 173, 1);
-  color: rgba(0, 59, 92, 1);
+    background: /* top, transparent red, faked with gradient */
+    linear-gradient( rgba(73, 155, 234, 1), rgba(73, 155, 234, 0.75)), /* bottom, image */
+    /* url(../../../images/books.jpg) */
+    ;
+    background-color: rgba(0, 172, 173, 1);
+    color: rgba(0, 59, 92, 1);
 }
-
 .ball-scale > div {
-  background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95);
 }
-
 .color-base a {
-  padding: 5px;
-  margin: 5px;
-  text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
 }
 .small.color-base {
-  color: rgba(0, 59, 92, 0.75);
+    color: rgba(0, 0, 0, 0.75);
 }
 .small.color-base a {
-    color: rgba(0, 59, 92, 0.75);
+    color: rgba(0, 0, 0, 0.75);
 }
-
 .color-brand {
-  color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
 }
 .color-brand a {
-  color: color: rgba(0, 0, 0, 0.75);
-  padding: 5px;
-  margin: 5px;
-  text-decoration: none;
+    color: color: rgba(0, 0, 0, 0.75);
 }
-
 li {
-    background:
-      /* top, transparent red, faked with gradient */
-      linear-gradient(
-        rgba(0, 0, 0, 0.1),
-        rgba(255, 255, 255, 0.35)
-      );
+    background: rgba(0, 0, 0, 0.025);
 }
-
 input, .color-high .angular-center-container {
-  color: rgba(255, 255, 255, 0.65);
-  background-color: rgba(0,0,0,0.05);
+    color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(0, 0, 0, 0.05);
 }
