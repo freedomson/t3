@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  padding: 1em;
+  padding: 0;
+  height: 100vh;
 }
 ul {
     margin: 0;
@@ -13,7 +14,7 @@ ul {
     flex-wrap: wrap;
 }
 li {
-    margin: 1vh;
+    margin: 0;
     list-style-type: none;
     -webkit-order: 0;
     -ms-flex-order: 0;
@@ -23,10 +24,8 @@ li {
     flex: 1 1 auto;
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
-    align-self: auto;
-    border: 0px solid rgba(0, 0, 0, 0.10);
-    align-self: flex-start;
-    border-radius: 1vh;
+    align-self: stretch;
+    min-width: 50%;
 }
 .block-page{
 }
@@ -35,7 +34,11 @@ li {
   list-style: none;
 }
 .block-big .angular-center-container {
-  padding: 0vw 10vh 5vh 10vh;
+  padding: 0vw 5vh 2vh 5vh;
+}
+
+.big > .angular-center-container  {
+    height: 5vh;
 }
 
 .block-small {
@@ -48,6 +51,7 @@ li {
 input.block-small {
   border: 0;
   padding: 1vw 2vw 1vw 2vw;
+  width: 60vw;
 }
 
 @keyframes blink {

@@ -27,7 +27,8 @@ body {
     color: color: rgba(0, 0, 0, 0.75);
 }
 li {
-    background: rgba(0, 0, 0, 0.025);
+background:-webkit-gradient(radial, 165 0, 0, 220 -257, 465,
+  from(rgba(255, 255, 255, 0.02)), to(rgba(255, 255, 255, 0.15)))
 }
 input, .color-high .angular-center-container {
     color: rgba(255, 255, 255, 0.65);

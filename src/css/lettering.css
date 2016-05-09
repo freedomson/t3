@@ -1,6 +1,6 @@
 *{
   font-family: 'Sawasdee', 'Droid Sans', sans-serif;
-  font-size: calc( 100vW * 0.025);
+  font-size: calc( 100vW * 0.015);
   font-weight: 300;
 }
 
@@ -12,7 +12,7 @@
 h1 {
   margin:0;
   padding:0;
-  font-size: calc( 100vW * 0.075);
+  font-size: calc( 100vW * 0.045);
 }
 
 .small {
@@ -29,8 +29,5 @@ h1 {
   font-size: calc( 100vW * 0.15);
 }
 .big, .big span {
-  font-size: calc( 100vW * 0.035);
-}
-.big > .angular-center-container  {
-    height: 10vh;
+  font-size: calc( 100vW * 0.025);
 }
