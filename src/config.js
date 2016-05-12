@@ -1,5 +1,5 @@
 angular.module('Config.Services', []).service(
-  'SystemDefaults', function($resource, 
+  'SystemDefaults', function($resource,
   $translate, $rootScope, $location, $filter) {
 
     var config = {
@@ -13,13 +13,13 @@ angular.module('Config.Services', []).service(
         console.log(arguments);
         //updateTranslation();
     });*/
-    
+
     var hash = $filter('date')(new Date(), 'yyyy-MM-dd-HH-mm-ss-Z', '+0000')
-  
+
     $rootScope.$on('$locationChangeStart', function (me,newv,old) {
         var lang = newv.match(/__(.*)__/);
         if( !lang ){
-         
+
             var parser = document.createElement('a');
             parser.href = newv;
 
@@ -29,12 +29,12 @@ angular.module('Config.Services', []).service(
             parser.pathname; // => "/pathname/"
             parser.search;   // => "?search=test"
             parser.hashP = parser.hash.replace("#/", "/");;     // => "#hash"
-            parser.host;     // => "example.com:3000"    
+            parser.host;     // => "example.com:3000"
 
             me.preventDefault();
             parser.hash;     // => "#hash"
             console.log(parser.hashP);
-                        
+
             $translate(['ROUTE.ERROR']).then(function (trans) {
                 console.log(arguments);
             });
@@ -43,17 +43,18 @@ angular.module('Config.Services', []).service(
 
         //updateTranslation();
     });
-    
+
 
     function getDefaultError(){
       return config.error.default;
     }
-    
+
     function getLang(){
       return $translate(['BUTTON.CREATE']);
     }
 
   return {
+      brand: 'pliik',
       getLang: getLang,
     getDefaultError : getDefaultError
   };

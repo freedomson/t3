@@ -1,7 +1,7 @@
 angular.module('Login', [/*'templates-dist'*/])
   .controller('LoginMainController',
-        ['$scope','cssInjector','$translate','$rootScope','$timeout',
-        function($scope, cssInjector, $translate,  $rootScope, $timeout) {
+        ['SystemDefaults','$scope','cssInjector','$translate','$rootScope','$timeout',
+        function(SystemDefaults,$scope, cssInjector, $translate,  $rootScope, $timeout) {
 
         function onClick() {
           $scope.vm.showInput = !$scope.vm.showInput;
@@ -12,6 +12,7 @@ angular.module('Login', [/*'templates-dist'*/])
           }
         }
         $scope.vm = {
+          brand: SystemDefaults.brand,
           email : '',
           showInput: false,
           onClick: onClick
