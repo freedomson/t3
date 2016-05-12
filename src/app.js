@@ -34,16 +34,56 @@ angular.module('App')
   $translateProvider.useSanitizeValueStrategy('escape');
   $translateProvider
     .translations('pt-PT', translationsPtPT)
+    .translations('pt-BR', translationsPtPT)
     .translations('en-US', translationsEnUS)
     // .preferredLanguage('en_US')
     .fallbackLanguage('en-US')
     .uniformLanguageTag('bcp47')
     .determinePreferredLanguage();
 
+/*
   $routeTranslator = {
-    'error' : $translateProvider.translations()[$translateProvider.preferredLanguage()]['ROUTE.ERROR']
+    'error' : function() {
+       try {
+          return $translateProvider.translations()[$translateProvider.preferredLanguage()]['ROUTE.ERROR'];
+       } catch(e){
+          return 'error';  
+       }
+    }()
   }
-// debugger;
+  */
+  
+  try {
+      //$translateProvider.translations()[$translateProvider.preferredLanguage()]['ROUTE.ERROR']
+      //A.each$translateProvider.translations();
+      
+      var t = $translateProvider.translations();
+
+      angular.forEach( t, function(value,key,all){
+
+        $stateProvider
+        // error
+        // ----------------------------------------------
+        .state('error'+key, { // state for showing all movies
+            url: '/'+value['ROUTE.ERROR']+'/:id/:lang/:date',
+            templateUrl: 'src/features/error/error.html',//,
+            controller: 'ErrorMainController'
+        });
+          
+      });
+  } catch(ex){
+      console.log(ex)
+  }
+
+$stateProvider
+// error
+// ----------------------------------------------
+.state('error', { // state for showing all movies
+    url: '/error/:id/:lang/:date',
+    templateUrl: 'src/features/error/error.html',//,
+    controller: 'ErrorMainController'
+});
+
   $stateProvider
   // home
   // ----------------------------------------------
@@ -51,17 +91,10 @@ angular.module('App')
     url: '',
     templateUrl: 'src/features/page-home/page-home.html',//,
     controller: 'PageHomeMainController'
-
-  // error
-  // ----------------------------------------------
-  }).state('error', { // state for showing all movies
-    url: '/error/:id',
-    templateUrl: 'src/features/error/error.html',//,
-    controller: 'ErrorMainController'
-
+  }).
   // todo
-  // ----------------------------------------------
-  }).state('viewMovie', { //state for showing single movie
+  // ----------------------------------------------  
+  state('viewMovie', { //state for showing single movie
     url: '/movies/:id/view',
     templateUrl: 'partials/movie-view.html',
     controller: 'MovieViewController'

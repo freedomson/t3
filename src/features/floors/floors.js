@@ -27,6 +27,13 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                 updateTranslation();
                 $scope.vm.loading = false;
                 //alert('Success: ' + greeting);
+                /*
+                $translate(['ROUTE.ERROR']).then(function (trans) {
+                    $location.path(trans['ROUTE.ERROR'] + '/' + 
+                      SystemDefaults.getDefaultError() );
+                });
+                */
+                
             }, function(reason) {
 
                 $translate(['ROUTE.ERROR']).then(function (trans) {
