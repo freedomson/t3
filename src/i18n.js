@@ -14,7 +14,7 @@ var translationsEnUS = {
   FOOTER: {
       NOTE: 'With Love from Lisbon'
   },
-  EMAIL: 'Email',
+  EMAIL: 'email',
   LOGIN: 'Login'
 };
 
@@ -34,6 +34,6 @@ var translationsPtPT = {
   FOOTER: {
       NOTE: 'Com amor de Lisboa'
   },
-  EMAIL: 'Correio',
+  EMAIL: 'email',
   LOGIN: 'Entrar'
 };

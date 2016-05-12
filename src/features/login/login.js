@@ -18,17 +18,11 @@ angular.module('Login', [/*'templates-dist'*/])
           onClick: onClick
         };
 
-        function updateTranslation(){
-          $translate(['EMAIL']).then(function (trans) {
-              $scope.vm.email = trans.EMAIL;
-          });
-        }
-        $rootScope.$on('$translateChangeSuccess', function () {
-            updateTranslation();
-        });
-
         cssInjector.add("src/features/login/login.css");
-        updateTranslation();
+
+        $timeout(function(){
+          onClick();
+        }, 3000);
 
     }])
   .directive('login', function ($templateCache) {

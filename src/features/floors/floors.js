@@ -18,9 +18,12 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                   //console.log(item)
                   item.date = new Date(item.updated);
 
+                  var mom = moment(item.date);
+                  moment("20120620", "YYYYMMDD").fromNow();
+
                   // request a weekday along with a long date
                   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                  item.dateFull = item.date.toLocaleDateString('pt-PT', options);
+                  item.dateFull = mom.fromNow();// item.date.toLocaleDateString('pt-PT', options);
                   // → "Donnerstag, 20. Dezember 2012"
 
                 });
@@ -29,11 +32,11 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                 //alert('Success: ' + greeting);
                 /*
                 $translate(['ROUTE.ERROR']).then(function (trans) {
-                    $location.path(trans['ROUTE.ERROR'] + '/' + 
+                    $location.path(trans['ROUTE.ERROR'] + '/' +
                       SystemDefaults.getDefaultError() );
                 });
                 */
-                
+
             }, function(reason) {
 
                 $translate(['ROUTE.ERROR']).then(function (trans) {
@@ -52,7 +55,7 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                 // request a weekday along with a long date
                 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                 // console.log($translate.proposedLanguage());
-                item.dateFull = item.date.toLocaleDateString($translate.proposedLanguage(), options);
+                // item.dateFull = item.date.toLocaleDateString($translate.proposedLanguage(), options);
                 // → "Donnerstag, 20. Dezember 2012"
 
               });

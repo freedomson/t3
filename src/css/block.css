@@ -25,7 +25,8 @@ li {
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     align-self: stretch;
-    min-width: 50%;
+    min-width: 45%;
+    margin: 0.2em;
 }
 .block-page{
 }
@@ -52,6 +53,8 @@ input.block-small {
   border: 0;
   padding: 1vw 2vw 1vw 2vw;
   width: 60vw;
+  text-align: center;
+  margin: 0.2em;
 }
 
 @keyframes blink {
