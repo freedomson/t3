@@ -39,9 +39,15 @@ angular.module('Config.Services', []).service(
                 console.log(arguments);
             });
             $location.path(parser.hashP+'/__'+$translate.use()+'__/'+hash);
-        }
 
+
+        }
         //updateTranslation();
+    });
+
+
+    $rootScope.$on('$translateChangeSuccess', function () {
+        moment.locale($translate.use());
     });
 
 

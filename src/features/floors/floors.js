@@ -17,13 +17,9 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                 $scope.vm.floors.forEach(function(item){
                   //console.log(item)
                   item.date = new Date(item.updated);
-
-                  var mom = moment(item.date);
-                  moment("20120620", "YYYYMMDD").fromNow();
-
                   // request a weekday along with a long date
                   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                  item.dateFull = mom.fromNow();// item.date.toLocaleDateString('pt-PT', options);
+                  item.dateFull = moment(item.date).fromNow();// item.date.toLocaleDateString('pt-PT', options);
                   // → "Donnerstag, 20. Dezember 2012"
 
                 });
@@ -51,7 +47,7 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
               $scope.vm.floors.forEach(function(item){
                 //console.log(item)
                 item.date = new Date(item.updated);
-
+                item.dateFull = moment(item.date).fromNow();
                 // request a weekday along with a long date
                 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                 // console.log($translate.proposedLanguage());
