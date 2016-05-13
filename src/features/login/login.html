@@ -1,10 +1,15 @@
 <div>
   <centered data-ng-click="vm.onClick()" data-ng-if="!vm.showInput">
     <div class="block-blink color-brand">
-      <h1>{{ vm.brand }}</h1>
+      <h1>{{ 'SLOGAN' | translate }} </h1>
     </div>
 </centered>
 <centered data-ng-if="vm.showInput" >
-  <input id="username" class="big block-small" type="text" value="" placeholder="{{ 'LOGIN' | translate }} [{{ 'EMAIL' | translate }}]"/>
+  <input
+    id="username" class="big block-small"
+    type="text" value=""
+    data-ng-model="vm.email"
+    placeholder="{{ 'LOGIN' | translate }} [{{ 'EMAIL' | translate }}]"/>
+  <button data-ng-click="vm.requestToken(vm.email)">Login</button>
 </centered>
 </div>

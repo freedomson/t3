@@ -47,16 +47,16 @@ angular.module('App')
        try {
           return $translateProvider.translations()[$translateProvider.preferredLanguage()]['ROUTE.ERROR'];
        } catch(e){
-          return 'error';  
+          return 'error';
        }
     }()
   }
-  */
-  
+
+
   try {
       //$translateProvider.translations()[$translateProvider.preferredLanguage()]['ROUTE.ERROR']
       //A.each$translateProvider.translations();
-      
+
       var t = $translateProvider.translations();
 
       angular.forEach( t, function(value,key,all){
@@ -69,17 +69,22 @@ angular.module('App')
             templateUrl: 'src/features/error/error.html',//,
             controller: 'ErrorMainController'
         });
-          
+
       });
   } catch(ex){
       console.log(ex)
   }
-
+  */
 $stateProvider
 // error
 // ----------------------------------------------
 .state('error', { // state for showing all movies
-    url: '/error/:id/:lang/:date',
+    url: '/error/:id',
+    templateUrl: 'src/features/error/error.html',//,
+    controller: 'ErrorMainController'
+})
+.state('error-pt', { // state for showing all movies
+    url: '/erro/:id',
     templateUrl: 'src/features/error/error.html',//,
     controller: 'ErrorMainController'
 });
@@ -93,7 +98,7 @@ $stateProvider
     controller: 'PageHomeMainController'
   }).
   // todo
-  // ----------------------------------------------  
+  // ----------------------------------------------
   state('viewMovie', { //state for showing single movie
     url: '/movies/:id/view',
     templateUrl: 'partials/movie-view.html',

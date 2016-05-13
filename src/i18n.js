@@ -11,9 +11,7 @@ var translationsEnUS = {
   BUTTON: {
     CREATE: 'Create a Book!'
   },
-  FOOTER: {
-      NOTE: 'With Love from Lisbon'
-  },
+  SLOGAN: 'With Love from Lisbon',
   EMAIL: 'email',
   LOGIN: 'Login'
 };
@@ -31,9 +29,7 @@ var translationsPtPT = {
   BUTTON: {
     CREATE: 'Escreva um livro!'
   },
-  FOOTER: {
-      NOTE: 'Com amor de Lisboa'
-  },
+  SLOGAN: 'Com amor de Lisboa',
   EMAIL: 'email',
   LOGIN: 'Entrar'
 };

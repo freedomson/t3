@@ -8,7 +8,7 @@ angular.module('Error', [/*'templates-dist'*/])
           };
 
           $scope.vm.code = $stateParams.id;
-          
+
           cssInjector.add("src/css/main.css");
           cssInjector.add("src/css/block.css");
           cssInjector.add("src/css/lettering.css");
@@ -16,8 +16,7 @@ angular.module('Error', [/*'templates-dist'*/])
           cssInjector.add("src/css/color.css");
 
           cssInjector.add("src/features/error/error.css");
-          $translate.use($stateParams.lang.replace("__","").replace("__",""));
-          
+
     }])
   .directive('error', function ($templateCache) {
     return {

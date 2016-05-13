@@ -126,12 +126,13 @@ module.exports = function(grunt) {
       dev: {
         root: '.',
         port: 443,
+        host: "0.0.0.0",
         https: {
             cert: "server.crt",
             key : "server.key"
         },
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "www.gugamarket.com",
           "Access-Control-Allow-Methods": "*",
           "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
         },
@@ -141,6 +142,7 @@ module.exports = function(grunt) {
       dist: {
         root: './dist',
         port: 443,
+        host: "0.0.0.0",
         https: {
             cert: "server.crt",
             key : "server.key"

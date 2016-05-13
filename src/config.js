@@ -13,7 +13,7 @@ angular.module('Config.Services', []).service(
         console.log(arguments);
         //updateTranslation();
     });*/
-
+/*
     var hash = $filter('date')(new Date(), 'yyyy-MM-dd-HH-mm-ss-Z', '+0000')
 
     $rootScope.$on('$locationChangeStart', function (me,newv,old) {
@@ -43,7 +43,7 @@ angular.module('Config.Services', []).service(
 
         }
         //updateTranslation();
-    });
+    });*/
 
 
     $rootScope.$on('$translateChangeSuccess', function () {
@@ -61,7 +61,8 @@ angular.module('Config.Services', []).service(
 
   return {
       brand: 'pliik',
+      domain: 'localhost',
       getLang: getLang,
-    getDefaultError : getDefaultError
+      getDefaultError: getDefaultError
   };
 });
