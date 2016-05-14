@@ -1,9 +1,14 @@
 angular.module('Login', ['API.Services'/*'templates-dist'*/])
   .controller('LoginMainController',
-        ['Login','SystemDefaults','$scope','cssInjector','$translate','$rootScope','$timeout',
-        function(Login, SystemDefaults,$scope, cssInjector, $translate,  $rootScope, $timeout) {
+        ['$location','Login','SystemDefaults','$scope','cssInjector','$translate','$rootScope','$timeout',
+        function($location, Login, SystemDefaults,$scope, cssInjector, $translate,  $rootScope, $timeout) {
 
         function requestToken(email){
+
+          if (!email) {
+            $scope.vm.animateLogin = true;
+            return;
+          }
 
           var results = Login.post({},{
             user: email,
@@ -36,7 +41,8 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           email : '',
           showInput: false,
           onClick: onClick,
-          requestToken: requestToken
+          requestToken: requestToken,
+          animateLogin: false
         };
 
         cssInjector.add("src/features/login/login.css");

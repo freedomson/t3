@@ -4,7 +4,7 @@ angular.module('Branding', [/*'templates-dist'*/])
         function($scope, cssInjector, $translate,  $rootScope) {
 
           $scope.vm = {
-            name : 'PLIIK',
+            name : 'Gugabooks',
             slug: '',
             logo : 'images/logo.png'
           };

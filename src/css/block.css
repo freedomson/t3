@@ -24,10 +24,11 @@ li {
     flex: 1 1 auto;
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
-    align-self: stretch;
-    min-width: 45%;
+    /*align-self: stretch;
+    min-width: 45%;*/
     margin: 0.2em;
 }
+
 .block-page{
 }
 .block-big {
@@ -56,7 +57,12 @@ input.block-small {
   text-align: center;
   margin: 0.2em;
 }
-
+button {
+  border: 0;
+  padding: 1vw 2vw 1vw 2vw;
+  text-align: center;
+  margin: 0.2em;
+}
 @keyframes blink {
 to { color: transparent; }
 }

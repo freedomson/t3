@@ -4,10 +4,11 @@
       <h1>{{ 'SLOGAN' | translate }} </h1>
     </div>
 </centered>
-<centered data-ng-if="vm.showInput" >
+<centered data-ng-if="vm.showInput"  data-ng-class="{'animated infinite flash': vm.animateLogin}">
   <input
     id="username" class="big block-small"
-    type="text" value=""
+
+    type="email" value=""
     data-ng-model="vm.email"
     placeholder="{{ 'LOGIN' | translate }} [{{ 'EMAIL' | translate }}]"/>
   <button data-ng-click="vm.requestToken(vm.email)">Login</button>

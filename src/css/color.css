@@ -1,9 +1,12 @@
 body {
-    background: /* top, transparent red, faked with gradient */
-    linear-gradient( rgba(213, 15, 234, 1), rgba(7, 155, 24, 0.75)), /* bottom, image */
-    /* url(../../../images/books.jpg) */
-    ;
-    background-color: rgba(220, 212, 173, 1);
+      background: /* top, transparent red, faked with gradient */
+      linear-gradient( rgba(213, 15, 234, 1), rgba(7, 155, 24, 0.75)), /* bottom,
+   image */
+      /* url(../../../images/books.jpg) */
+      ;
+      background-color: rgba(220, 212, 173, 1);
+}
+* {
     color: rgba(0, 59, 92, 1);
 }
 .ball-scale > div {
@@ -15,22 +18,37 @@ body {
     text-decoration: none;
 }
 .small.color-base {
-    color: rgba(0, 0, 0, 0.75);
 }
 .small.color-base a {
-    color: rgba(0, 0, 0, 0.75);
 }
 .color-brand {
-    color: rgba(255, 255, 255, 1);
 }
 .color-brand a {
-    color: color: rgba(0, 0, 0, 0.75);
 }
 li {
   border: 1px solid rgba(255, 255, 255, 0.04);
   background: rgba(255, 255, 255, 0.05);
 }
-input, .color-high .angular-center-container {
-    color: rgba(255, 255, 255, 0.65);
+button, input.block-small {
     background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+input:focus, button:focus {
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    outline:none;
+}
+::-webkit-input-placeholder {
+   color: inherit;;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: inherit;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: inherit;
+}
+
+:-ms-input-placeholder {
+   color: red;
 }

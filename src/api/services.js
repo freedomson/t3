@@ -1,6 +1,6 @@
 angular.module('API.Services', [])
 .constant("serviceConfig", {
-    "token": "38280cc6-0d9d-483e-9dbd-2551313ac5b7",
+    "token": "c0e1c45e-6ea9-4c1d-b306-a3e6a4d392a8",
     "url": "https://www.gugamarket.com"
 })
 .factory(
@@ -11,7 +11,8 @@ angular.module('API.Services', [])
     get: {
         method: 'GET',
         withCredentials: false,
-        transformResponse: function(data, headers){
+        transformResponse: function(data, headers, status){
+
             data = angular.fromJson(data);
             return data;
         }
@@ -27,8 +28,15 @@ angular.module('API.Services', [])
     post: {
         method: 'POST',
         withCredentials: false,
-        transformResponse: function(data, headers){
-            data = angular.fromJson(data);
+        transformResponse: function(data, headers, status){
+            switch (status){
+              case 401:
+                data = {error: data, code: status};
+                break;
+              case 200:
+                data = angular.fromJson(data);
+            }
+
             return data;
         }
     }
