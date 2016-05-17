@@ -1,6 +1,6 @@
 angular.module('API.Services', [])
 .constant("serviceConfig", {
-    "token": "99673512-ead7-41af-93cf-bfb335543ae8",
+    "token": "31cf4267-49d0-4408-84b3-5884b7e52579",
     "url": "https://www.gugamarket.com"
 })
 .factory(

@@ -3,6 +3,11 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
         ['$location','Login','SystemDefaults','$scope','cssInjector','$translate','$rootScope','$timeout',
         function($location, Login, SystemDefaults,$scope, cssInjector, $translate,  $rootScope, $timeout) {
 
+          // button stops blink
+          function onFocus(){
+            $scope.vm.animateLogin = false;
+          }
+
         function requestToken(email){
 
           if (!email) {
@@ -42,14 +47,16 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           showInput: false,
           onClick: onClick,
           requestToken: requestToken,
+          onFocus: onFocus,
           animateLogin: false
         };
 
         cssInjector.add("src/features/login/login.css");
 
         $timeout(function(){
+          onFocus();
           onClick();
-        }, 3000);
+        }, 1000);
 
     }])
   .directive('login', function ($templateCache) {
