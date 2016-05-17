@@ -23,8 +23,6 @@ angular.module('PageHome', [/*'templates-dist'*/])
             cssInjector.add("src/css/button.css");
             cssInjector.add("src/css/color.css");
 
-            cssInjector.add("src/vendor/animate/animate.min.css");
-
             cssInjector.add("src/features/page-home/page-home.css");
 
     }])
