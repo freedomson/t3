@@ -1,16 +1,19 @@
 <div  data-ng-class="{'animated infinite flash': vm.animateLogin}">
   <centered data-ng-click="vm.onClick()" data-ng-if="!vm.showInput">
-    <div class="block-blink color-brand">
+    <div class="color-brand animated infinite pulse">
       <h1>{{ 'SLOGAN' | translate }} </h1>
     </div>
 </centered>
 <centered data-ng-if="vm.showInput" >
   <input
-    id="username" class="big block-small"
-
+    id="username"
+    class="big block-small animated fadeIn"
+    data-ng-focus="vm.onFocus()"
     type="email" value=""
     data-ng-model="vm.email"
     placeholder="{{ 'LOGIN' | translate }} [{{ 'EMAIL' | translate }}]"/>
-  <button data-ng-click="vm.requestToken(vm.email)">Login</button>
+  <button
+  class="animated fadeIn"
+  data-ng-click="vm.requestToken(vm.email)">{{ 'LOGIN' | translate }}</button>
 </centered>
 </div>

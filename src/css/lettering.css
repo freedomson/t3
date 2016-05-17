@@ -30,12 +30,15 @@ h1 {
 button {
     font-size: calc( 100vW * 0.025);
 }
-
+.extra {
+  font-weight: bold;
+  font-size: calc( 100vW * 0.075);
+}
 .big {
   /* text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.10); */
   font-weight: bold;
   font-size: calc( 100vW * 0.15);
 }
 .big, .big span {
-  font-size: calc( 100vW * 0.025);
+  font-size: calc( 100vW * 0.035);
 }
