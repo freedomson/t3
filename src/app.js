@@ -15,7 +15,8 @@ angular.module( 'App', [
     'Language',
     'Login',
     'Error',
-    'Config.Services']);
+    'Config.Services',
+    'Modal']);
  // var app = angular.module('TodosApp', ['ngResource','Branding','Todos']);
 
 angular.module('App')

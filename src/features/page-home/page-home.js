@@ -1,7 +1,7 @@
 angular.module('PageHome', [/*'templates-dist'*/])
   .controller('PageHomeMainController',
-        ['$scope','cssInjector','$rootScope','$translate',
-        function($scope,cssInjector,$rootScope,$translate) {
+        ['$timeout','$scope','cssInjector','$rootScope','$translate',
+        function($timeout,$scope,cssInjector,$rootScope,$translate) {
 
             $scope.vm = {
               labelCreate   : ''
@@ -24,6 +24,12 @@ angular.module('PageHome', [/*'templates-dist'*/])
             cssInjector.add("src/css/color.css");
 
             cssInjector.add("src/features/page-home/page-home.css");
+
+            $timeout(function () {
+
+              document.getElementById('content').style.opacity=1;
+            }, 0);
+
 
     }])
   .directive('pageHome', function ($templateCache) {

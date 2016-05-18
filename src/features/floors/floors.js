@@ -6,9 +6,7 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
 
             var results = Floor.get({ id: 'root' });
 
-            $scope.vm = {
-              loading: true
-            };
+            $scope.vm = {};
 
             results.$promise.then(function(Floor) {
                 //debugger
@@ -24,7 +22,6 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
 
                 });
                 updateTranslation();
-                $scope.vm.loading = false;
                 //alert('Success: ' + greeting);
                 /*
                 $translate(['ROUTE.ERROR']).then(function (trans) {
@@ -32,6 +29,7 @@ angular.module('Floors', ['API.Services'/*'templates-dist'*/])
                       SystemDefaults.getDefaultError() );
                 });
                 */
+
 
             }, function(reason) {
 
