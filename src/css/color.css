@@ -1,13 +1,8 @@
 body {
-      background: /* top, transparent red, faked with gradient */
-      linear-gradient( rgba(213, 15, 234, 1), rgba(7, 155, 24, 0.75)), /* bottom,
-   image */
-      /* url(../../../images/books.jpg) */
-      ;
-      background-color: rgba(220, 212, 173, 1);
+      background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
 * {
-    color: rgba(0, 59, 92, 1);
+    color: rgba(255, 255, 255, 0.5);
 }
 .ball-scale > div {
     background: rgba(255, 255, 255, 0.95);
