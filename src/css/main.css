@@ -1,6 +1,8 @@
 .loader {
   width: 100%;
   margin-left: calc(-50% + 15px);
+  position: fixed;
+  top: 0px;
 }
 
 /**
@@ -36,6 +38,7 @@
     opacity: 0; } }
 
 .ball-scale > div {
+  opacity: 0.3;
   background-color: #fff;
   width: 15px;
   height: 15px;
@@ -46,8 +49,8 @@
   display: inline-block;
   height: 60px;
   width: 60px;
-  -webkit-animation: ball-scale 1s 0s ease-in-out infinite;
-          animation: ball-scale 1s 0s ease-in-out infinite; }
+  -webkit-animation: ball-scale 0.1s 0s ease-in-out infinite;
+          animation: ball-scale 0.1s 0s ease-in-out infinite; }
 
 @keyframes ball-scale {
   0% {
@@ -57,17 +60,3 @@
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 0; } }
-
-.ball-scale > div {
-  background-color: #fff;
-  width: 15px;
-  height: 15px;
-  border-radius: 100%;
-  margin: 2px;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  -webkit-animation: ball-scale 1s 0s ease-in-out infinite;
-          animation: ball-scale 1s 0s ease-in-out infinite; }

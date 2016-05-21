@@ -1,7 +1,7 @@
 <div  data-ng-class="{'animated infinite flash': vm.animateLogin}">
   <centered data-ng-click="vm.onClick()" data-ng-if="!vm.showInput">
     <div class="color-brand animated infinite pulse">
-      <h1>{{ 'SLOGAN' | translate }} </h1>
+      <h1>{{ vm.text }} </h1>
     </div>
 </centered>
 <centered data-ng-if="vm.showInput" >

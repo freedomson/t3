@@ -1,9 +1,7 @@
 body {
       background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
-* {
-    color: rgba(255, 255, 255, 0.5);
-}
+
 .ball-scale > div {
     background: rgba(255, 255, 255, 0.95);
 }
@@ -23,6 +21,9 @@ body {
 li {
   border: 1px solid rgba(255, 255, 255, 0.04);
   background: rgba(255, 255, 255, 0.05);
+}
+li span{
+  color: rgba(255, 255, 255, 0.85);
 }
 button, input.block-small {
     background-color: rgba(0, 0, 0, 0.05);
@@ -45,5 +46,8 @@ input:focus, button:focus {
 }
 
 :-ms-input-placeholder {
-   color: red;
+   color: inherit;
+}
+* {
+    color: rgba(255, 255, 255, 0.5);
 }

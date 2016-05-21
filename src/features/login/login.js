@@ -22,6 +22,12 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           results.$promise.then(function(response) {
               //debugger
               console.log(arguments);
+              $scope.vm.showInput = false;
+              $translate(['SLOGAN']).then(function (trans) {
+                  // trans['SLOGAN']
+                  $scope.vm.text = 'We just sent you a email!';
+                  $scope.vm.animateLogin = true;
+              });
 
           }, function(reason) {
 
@@ -43,6 +49,7 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           }
         }
         $scope.vm = {
+          text: '',
           email : '',
           showInput: false,
           onClick: onClick,
@@ -51,12 +58,17 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           animateLogin: false
         };
 
+        $translate(['SLOGAN']).then(function (trans) {
+            // trans['SLOGAN']
+            $scope.vm.text = trans['SLOGAN'];
+        });
+
         cssInjector.add("src/features/login/login.css");
 
         $timeout(function(){
           onFocus();
           onClick();
-        }, 1000);
+        }, 1900);
 
     }])
   .directive('login', function ($templateCache) {
