@@ -13,7 +13,8 @@ var translationsEnUS = {
   },
   SLOGAN: 'With Love from Lisbon',
   EMAIL: 'email',
-  LOGIN: 'Login'
+  LOGIN: 'Login',
+  SENTMAIL: 'We just sent you a email!'
 };
 
 var translationsPtPT = {
@@ -31,5 +32,6 @@ var translationsPtPT = {
   },
   SLOGAN: 'Com amor de Lisboa',
   EMAIL: 'email',
-  LOGIN: 'Entrar'
+  LOGIN: 'Entrar',
+  SENTMAIL: 'Acabamos de enviar-lhe um email!'
 };

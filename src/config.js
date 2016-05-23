@@ -1,5 +1,5 @@
 angular.module('Config.Services', []).service(
-  'SystemDefaults', function($resource,
+  'SystemDefaults', function($timeout, $resource,
   $translate, $rootScope, $location, $filter) {
 
     var config = {
@@ -50,6 +50,12 @@ angular.module('Config.Services', []).service(
         moment.locale($translate.use());
     });
 
+    $rootScope.$on('$viewContentLoaded',
+    function(event){
+      $timeout(function () {
+        document.getElementById('content').style.opacity=1;
+      }, 0);
+    });
 
     function getDefaultError(){
       return config.error.default;

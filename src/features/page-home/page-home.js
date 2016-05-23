@@ -25,12 +25,6 @@ angular.module('PageHome', [/*'templates-dist'*/])
 
             cssInjector.add("src/features/page-home/page-home.css");
 
-            $timeout(function () {
-
-              document.getElementById('content').style.opacity=1;
-            }, 0);
-
-
     }])
   .directive('pageHome', function ($templateCache) {
     return {

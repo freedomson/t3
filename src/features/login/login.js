@@ -3,6 +3,8 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
         ['$location','Login','SystemDefaults','$scope','cssInjector','$translate','$rootScope','$timeout',
         function($location, Login, SystemDefaults,$scope, cssInjector, $translate,  $rootScope, $timeout) {
 
+          var emailSent = false;
+
           // button stops blink
           function onFocus(){
             $scope.vm.animateLogin = false;
@@ -21,12 +23,11 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           });
           results.$promise.then(function(response) {
               //debugger
-              console.log(arguments);
+              // console.log(arguments);
               $scope.vm.showInput = false;
-              $translate(['SLOGAN']).then(function (trans) {
-                  // trans['SLOGAN']
-                  $scope.vm.text = 'We just sent you a email!';
-                  $scope.vm.animateLogin = true;
+              emailSent = true;
+              updateTranslation(function() {
+                $scope.vm.animateLogin = true;
               });
 
           }, function(reason) {
@@ -35,7 +36,7 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
                   $location.path(trans['ROUTE.ERROR'] + '/' + (reason.status
                     || SystemDefaults.getDefaultError() ) );
               });
-              console.log(reason, arguments);
+              // console.log(reason, arguments);
               // alert('Failed: ' + reason);
           });
         }
@@ -58,11 +59,6 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           animateLogin: false
         };
 
-        $translate(['SLOGAN']).then(function (trans) {
-            // trans['SLOGAN']
-            $scope.vm.text = trans['SLOGAN'];
-        });
-
         cssInjector.add("src/features/login/login.css");
 
         $timeout(function(){
@@ -70,6 +66,22 @@ angular.module('Login', ['API.Services'/*'templates-dist'*/])
           onClick();
         }, 1900);
 
+        function updateTranslation(cb){
+          $translate(['SENTMAIL', 'SLOGAN']).then(function (trans) {
+            if (emailSent){
+              $scope.vm.text = trans['SENTMAIL'];
+            } else {
+              $scope.vm.text = trans['SLOGAN'];
+            }
+            if (cb) cb();
+          });
+        }
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            updateTranslation();
+        });
+
+        updateTranslation();
     }])
   .directive('login', function ($templateCache) {
     return {
